@@ -9,15 +9,14 @@ const Header = () =>(
             <a className="active" href="#exit">خروج</a>
             </div>
             <a href="#logo"> <img alt="logo" src ={ require('../../template/photo/Logo/logov2.png')}/> </a>
-<<<<<<< HEAD
+
         </div>
 
         {/*<div className="tifani bar">*/}
         {/*</div>*/}
-=======
+
             </div>
-        </div>
->>>>>>> 13fdae10f8e2bfa7d2446f4a5489ad41b98fab99
+
     </header>
 );
 

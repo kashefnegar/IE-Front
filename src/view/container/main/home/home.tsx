@@ -31,7 +31,6 @@ class Home extends Component {
                                 <FormControl type="email" placeholder="جستجو در جاب اونجا" />
                                 <Button variant="primary" type="submit">
                                     جستجو
-
                                 </Button>
                                 </Col>
                             </Form>
@@ -39,7 +38,6 @@ class Home extends Component {
                             {/*<Col sm={4}>*/}
                                 {/*hi*/}
                             {/*</Col>*/}
-
                         </Row>
                     </Container>
                     </div>
