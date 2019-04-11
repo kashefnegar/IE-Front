@@ -120,6 +120,8 @@ footer {
     /*!*background:#6cf;*!*/
 /*}*/
 header {
+    padding-top: 5px;
+    padding-bottom: 5px;
     overflow: auto;
     background-color: white;
     display: block;
@@ -166,6 +168,7 @@ header .header-right{
 
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
 header .header-right a img{
+    padding-bottom: 50px;
     width: 100px;
     height:10%;
     flex-direction: row;
