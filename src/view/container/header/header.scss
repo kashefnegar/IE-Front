@@ -1,8 +1,21 @@
 @import "../../template/style/base.css";
 
-body{
-  padding-top: 20px;
+div.sticky {
+  background: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding: 10px;
+  height: 30px;
 }
-
-//@import "~bootstrap/scss/navbar";
-//@import "~bootstrap/scss/navbar";
+div.sticky a img{
+  float: right;
+  margin-right: 300px;
+  margin-top: -20px;
+  padding-top: 0px;
+  direction: ltr;
+}
+div.icons a{
+  margin-left: 2%;
+  font-size: 15px;
+}
