@@ -16,6 +16,10 @@ div.sticky a img{
   direction: ltr;
 }
 div.icons a{
-  margin-left: 2%;
+  margin-left: 10%;
   font-size: 15px;
+
+}
+div.icons a:first-child{
+  margin-left: 2%;
 }
