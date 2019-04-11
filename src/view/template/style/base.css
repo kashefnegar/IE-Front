@@ -63,7 +63,7 @@
 }
 
 body{
-    padding-top: 80px;
+    padding-top: 10px;
     min-height:100%;
     position:relative;
 }
@@ -84,7 +84,7 @@ header {
     background-color: white;
     display: block;
     vertical-align: middle;
-    margin-left: 100px;
+    margin-left: 0px;
 }
 
 header .rtl{
@@ -109,6 +109,7 @@ header a {
     width: auto;
     height: 200px;
     padding: 20px;
+    panding-top: 30px;
     border-top-style: double;
     border-bottom-style: double;
     border-color: #b6dee0;
