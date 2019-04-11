@@ -8,8 +8,8 @@ const Header = () =>(
             <a href="#logo"> <img alt="logo" src ={ require('../../template/photo/Logo/logov2.png')}/> </a>
         </div>
 
-        <div className="tifani bar">
-        </div>
+        {/*<div className="tifani bar">*/}
+        {/*</div>*/}
     </header>
 );
 // class Header extends Component {

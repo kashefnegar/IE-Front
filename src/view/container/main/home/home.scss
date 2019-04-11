@@ -1,0 +1,61 @@
+@import "../../../template/style/base.css";
+
+.tifani h3{
+
+  //position: absolute;
+  color: #38838b;
+  font-family: Vazir, Verdana, Arial, sans-serif;
+  font-size: 30px;
+  margin: 10px;
+  margin-right: 0px;
+  //padding: 10px;
+
+}
+.tifani{
+  margin: 0px;
+  padding: 50px;
+  padding-right: 90px;
+  background: #c4edf1 ;
+  direction: rtl;
+}
+.tifani p{
+  font-family: Vazir, Verdana, Arial, sans-serif;
+  font-size: 10px;
+  margin-right: 50px;
+  //text-bl;
+
+}
+.search_form{
+  place-content:center ;
+  direction: rtl;
+}
+.btn.btn-primary{
+  border-left-width: 9px;
+  border-right-width: 0px;
+  border-top-width: 9px;
+  border-bottom-width: 8px;
+  border-color: #ddf7f9;
+  padding-right: 8px;
+  //padding: 8px  #fefeff;
+  //padding: ;
+  background-color: #4cacbc;
+  color: #fefeff;
+}
+form{
+  position: center;
+  padding-right: 100px;
+  border: #48aaba ;
+}
+.form-control{
+  width: 50%;
+  border: 10px;
+
+  //border-right: 0px ;
+  //border-top: 0px;
+  //border-left:0px ;
+  //box-shadow: #48aaba;
+  background: #ddf7f9;
+  //border-bottom:5px solid  #48aaba ;
+   //width: max-content;
+  padding: 10px;
+}
