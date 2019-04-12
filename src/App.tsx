@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import './view/users/users';
+// import "react-bootstrap/dist/react-bootstrap.min.js";
 import Users from "src/view/users/users";
 
 class App extends Component<props, state> {
