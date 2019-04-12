@@ -1,32 +1,30 @@
-.login-form {
-  color: black;
-  background: white;
+@import '../../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+*, ::after, ::before{
+  box-sizing: content-box;
 }
-.login-form h4 {
+.form-label {
   text-align:center;
   margin-left:40px;
   color:black;
+
 }
-.login-form {
+.form-group {
   box-sizing:border-box;
-  padding-top:15px;
-  padding-bottom:10%;
-  margin:5% auto;
+
+  margin:1% auto;
   text-align:center;
 }
-.login input[type="text"],
-.login input[type="password"] {
-  max-width:400px;
-  width: 80%;
+input#formBasicEmail.form-control,input#formBasicPassword{
+  margin-left: 10px;
   line-height:2em;
   font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
-  margin:1em 2em;
-  border-radius:5px;
-  border:2px solid #f2f2f2;
-  outline:none;
-  padding-left:10px;
+  //border-radius:5px;
+  text-align:center;
+  border-radius:20px;
 }
-.login-form input[type="button"] {
+
+
+.btn.btn-primary{
   height:30px;
   width:100px;
   background:#fff;
@@ -36,4 +34,7 @@
   text-transform:uppercase;
   font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif;
   cursor:pointer;
+ //width: 100%;
+ // border-radius:0px;
+ // //margin-bottom: .5rem;
 }
