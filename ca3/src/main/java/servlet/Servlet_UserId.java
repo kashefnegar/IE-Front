@@ -33,7 +33,7 @@ public class Servlet_UserId extends MyServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String[] path = request.getRequestURI().split("/");
         Register user = MyUser.getInstance().FindUser(path[2]);
-        response.setContentType("application/json");
+        response.setContentType("application/json;charset=UTF-8");
         JSONObject resp_massage = new JSONObject();
 //        System.out.println(path[1]);
         if(user==null){

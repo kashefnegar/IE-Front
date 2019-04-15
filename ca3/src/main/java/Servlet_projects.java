@@ -18,7 +18,7 @@ public class Servlet_projects extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        System.out.println("hiprj");
-        response.setContentType("application/json");
+        response.setContentType("application/json;charset=UTF-8");
         JSONObject resp_massage = new JSONObject();
         if (Projects.getInstance().getProjects().size()==0){
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
@@ -28,6 +28,7 @@ public class Servlet_projects extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_OK);
             resp_massage.put("Projects", new JSONArray(Projects.getInstance().getProjects()));
         }
+//        response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         out.print(resp_massage);
 

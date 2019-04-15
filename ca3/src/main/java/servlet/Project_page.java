@@ -23,7 +23,7 @@ public class Project_page extends MyServlet{
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        response.setContentType("application/json");
+        response.setContentType("application/json;charset=UTF-8");
         JSONObject resp_massage = new JSONObject();
         String[] path = request.getRequestURI().split("/");;
         Project_page_tool project_page_tool_ =new Project_page_tool(path[2]);

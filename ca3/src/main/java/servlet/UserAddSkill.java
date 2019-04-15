@@ -25,7 +25,7 @@ public class UserAddSkill extends MyServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        response.setContentType("application/json");
+        response.setContentType("application/json;charset=UTF-8");
         JSONObject resp_massage = new JSONObject();
         ArrayList<Skills> skcan_be_add = this.getskills((Register) request.getAttribute("user"));
         if (skcan_be_add.size() == 0) {

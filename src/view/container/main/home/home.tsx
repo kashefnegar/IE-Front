@@ -5,6 +5,8 @@ import "./home.scss";
 import {Button, ButtonGroup, Col, Container, Form, FormControl, InputGroup, Row, ToggleButton} from "react-bootstrap";
 
 var discription :string = 'این سایت بهترین کار را برای شما پیدا می کند';
+const data =[{"name":"test1"},{"name":"test2"}];
+const listItems = data.map((d) => <li key={d.name}>{d.name}</li>);
 class Home extends Component {
     render() {
         return (
@@ -38,64 +40,14 @@ class Home extends Component {
                                     <Button variant="outline-secondary">جستجو </Button>
                                 </InputGroup.Append>
                             </InputGroup>
-
                         </Col>
-                        {/*<Row  >*/}
-
-                            {/*<Form >*/}
-                                {/*<Form inline>*/}
-                                {/*<Col  sm={10} >*/}
-                                {/*/!*<div className={"shadow_box"}>*!/*/}
-
-                                {/*<FormControl type="email" placeholder="جستجو در جاب اونجا" />*/}
-                                    {/*<Button variant="primary" type="submit">*/}
-                                        {/*جستجو*/}
-                                    {/*</Button>*/}
-                                {/*</Col>*/}
-                                {/*<Col>*/}
-
-                                {/*</Col>*/}
-
-                                {/*<Button variant="primary" type="submit">*/}
-                                    {/*جستجو*/}
-                                {/*</Button>*/}
-
-                                {/*</div>*/}
-
-                            {/*</Form>*/}
-                             {/*</Form>*/}
-
-                            {/*<Col sm={4}>*/}
-                                {/*hi*/}
-                            {/*</Col>*/}
-                        {/*</Row>*/}
                     </Container>
-
+                    </div>
+                    <div className={"project_information"}>
 
                     </div>
 
 
-                    <p>
-                        ￼
-                        Introduction
-                        Learn how to include React Bootstrap in your project
-
-
-                        JavaScript#
-                        React-Bootstrap is a complete re-implementation of the Bootstrap components using React. It has no dependency on either bootstrap.js or jQuery. If you have React setup and React-Bootstrap installed you have everything you need.
-
-                        Installation#
-                        The best way to consume React Bootstrap is via the npm package which you can install with npm (or yarn if you prefer).
-
-                        If you plan on customizing the Bootstrap Sass files, or don't want to use a CDN for the stylesheet, it may be helpful to install vanilla Bootstrap as well.
-
-                        npm install react-bootstrap bootstrap
-                        Importing#
-                        You should import individual components like: react-bootstrap/Button rather than the entire library. Doing so pulls in only the specific components that you use, which can significantly reduce the amount of code you end up sending to the client.
-
-                        import Button from 'react-bootstrap/Button';
-
-                    </p>
 
 
                 </main>
