@@ -61,4 +61,5 @@ interface State {
     inputValue: string;
 }
 
+// @ts-ignore
 export default Login;
