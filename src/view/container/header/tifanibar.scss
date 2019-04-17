@@ -1,0 +1,87 @@
+@import '../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+*, ::after, ::before{
+  box-sizing: content-box;
+}
+
+.tifani h3{
+
+  //position: absolute;
+  color: #38838b;
+  font-family: Vazir, Verdana, Arial, sans-serif;
+  font-size: 30px;
+  margin: 10px;
+  margin-right: 0px;
+  //padding: 10px;
+
+}
+.tifani{
+  margin: 0px;
+  padding: 50px;
+  padding-right: 90px;
+  background: #c4edf1 ;
+  direction: rtl;
+}
+.tifani p{
+  font-family: Vazir, Verdana, Arial, sans-serif;
+  font-size: 10px;
+  margin-right: 50px;
+  //text-bl;
+
+}
+.search_form{
+  place-content:center ;
+  direction: rtl;
+}
+.btn.btn-outline-secondary{
+  border-radius:0px;
+  border-left-width: 9px;
+  border-right-width: 9px;
+  border-top-width: 7px;
+  border-bottom-width: 7px;
+  border-color: #ddf7f9;
+  //padding-right: 8px;
+  border-style: solid;
+  //width: 100%;
+  background-color: #4cacbc;
+  color: #fefeff;
+
+  //padding-right: 0px;
+
+}
+form{
+  //position: center;
+  padding-right: 100px;
+  //border: #48aaba ;
+}
+.form-control{
+  //width: 50%;
+  border-radius:0px;
+  border: 10px;
+  width: 100%;
+  background: #ddf7f9;
+  //padding-left: 0px;
+  //padding: 10px;
+}
+.shadow_box{
+
+  //width: fit-content;
+}
+.col-sm-10 {
+  direction: rtl;
+  padding-right: 100px;
+  //border-bottom-width: 7px;
+  //border: #48aaba;
+  //padding: px;
+
+  //padding-left: 0px;
+  //padding-right: 0px;
+
+
+}
+.input-group {
+  border-bottom-color: #4cacbc;
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
+}
+//border: solid #5B6DCD 10px;
