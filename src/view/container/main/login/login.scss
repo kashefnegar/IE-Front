@@ -1,5 +1,8 @@
 @import '../../../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-*, ::after, ::before{
+@import "~bootstrap/dist/css/bootstrap-grid.css";
+@import "../../../template/style/base.css";
+
+*, *::after, *::before{
   box-sizing: content-box;
 }
 .form-label {

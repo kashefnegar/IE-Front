@@ -90,7 +90,7 @@ class Home extends Component<Props,State>{
                     </Row>
                 </Col>
                 <Col>
-                    <img src={girl} alt="Girl" />
+                    <img src={girl} />
                 </Col>
             </Row>
                 </div>
