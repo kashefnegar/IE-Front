@@ -68,7 +68,22 @@ class Home extends Component<Props,State>{
                 console.log('server errorrrr')
             });
     }
+    cheaking(deadline:number){
+        // deadline=0;
+        if(deadline>0){
+            return( <div className={"time_remain"}>
+                {" زمان باقی مانده: "}  {deadline%10000}
+            </div>);
+        }
+        else {
+            return(
+                <div className={"enddeadline"}>
+                    {"مهلت تمام شده"}
 
+                </div>
+            )
+        }
+    }
     project_list(){
         return(
             this.state.data.map( (  Projects: Projects) =>(
@@ -84,9 +99,11 @@ class Home extends Component<Props,State>{
                                     </div>
                                 </Col>
                                 <Col sm={3}>
-                                    <div className={"time_remain"}>
-                                        {" زمان باقی مانده: "}  {Projects.deadline%10000}
-                                    </div>
+
+                                    {this.cheaking(Projects.deadline)}
+                                    {/*<div className={"time_remain"}>*/}
+                                        {/*{" زمان باقی مانده: "}  {Projects.deadline%10000}*/}
+                                    {/*</div>*/}
                                 </Col>
                             </div>
                     </Row>
@@ -104,8 +121,9 @@ class Home extends Component<Props,State>{
                                 </div>
 
                                 {Projects.needskil.map((skill:skil)=>(
-
-                                    "\n"+skill.name+"\n"
+                                    <div className={"skill"}>
+                                        {skill.name}
+                                    </div>
                                 ))}
                             </div>
                             <br/>
