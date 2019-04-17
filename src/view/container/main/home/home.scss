@@ -6,7 +6,7 @@
 li{
 
 }
-.col-sm-8{
+.col-sm-9{
   text-align: -webkit-right;
   direction: rtl;
 }
@@ -51,6 +51,7 @@ div.col-sm-8 div.card-body{
   border: whitesmoke 1px;
 }
 div.card-body.card-body-cascade.text-right.wow.fadeIn {
+  //direction: rtl;
   background: #ffffff;
   margin-top: -20px;
   margin-bottom: 43px;
