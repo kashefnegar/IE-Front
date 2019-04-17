@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter(filterName = "filter.Filter_project" , urlPatterns = "/project/*")
+@WebFilter(filterName = "filter.Filter_project" , urlPatterns = "/*")
 public class Filter_project implements Filter {
     public void destroy() {
     }
