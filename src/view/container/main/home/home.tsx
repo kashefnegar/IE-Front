@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 // import ReactJson from "react-json-view";
+import girl from "../../../template/photo/icon/png/girl.png"
 import axios from 'axios'
 import Header from "src/view/container/header/header";
 import Footer from "src/view/container/footer/footer";
@@ -16,6 +17,8 @@ import {
     Row,
     ToggleButton
 } from "react-bootstrap";
+
+
 import Tifanibar from "src/view/container/header/tifanibar";
 
 
@@ -47,48 +50,50 @@ class Home extends Component<Props,State>{
         return(
             this.state.data.map( (  Projects: Projects) =>(
 
-            <Row key={Projects.id}>
-                <Col>
-                </Col>
-                <Col sm={8}>
-                    <Row>
-                        <div className={"firstline"}>
-                            <Col >
-                                <div className={"title_home"}>
-                                    {Projects.title }
-                                </div>
-                            </Col>
-                            <Col sm={2}>
-                                <div className={"time_remain"}>
-                                    {" زمان باقی مانده: "}  {Projects.deadline}
-                                </div>
-                            </Col>
-                        </div>
-                    </Row>
-                    <Row>
-
-                        <div className={"discription"}>
-                            {Projects.description}
-                        </div>
-                        <div className={"budget"}>
-                            بوجه: {Projects.budget} تومان
-                        </div>
-                        <div className={"skills"}>
-                            <div className={"skill_title"}>
-                                مهارت ها:
+                <div className={"card-body card-body-cascade text-right wow fadeIn"}>
+                    <Row key={Projects.id}>
+                    <Col sm={9}>
+                        <Row>
+                            <div className={"firstline"}>
+                                <Col >
+                                    <div className={"title_home"}>
+                                        {Projects.title }
+                                    </div>
+                                </Col>
+                                <Col sm={3}>
+                                    <div className={"time_remain"}>
+                                        {" زمان باقی مانده: "}  {Projects.deadline%10000}
+                                    </div>
+                                </Col>
                             </div>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <div className={"discription"}>
+                                {Projects.description}
+                            </div>
+                            <div className={"budget"}>
+                                بوجه: {Projects.budget} تومان
+                            </div>
+                            <div className={"skills"}>
+                                <div className={"skill_title"}>
+                                    مهارت ها:
+                                </div>
 
-                            {Projects.needskil.map((skill:skil)=>(
+                                {Projects.needskil.map((skill:skil)=>(
 
-                                "\n"+skill.name+"\n"
-                            ))}
-                        </div>
-                        <br/>
+                                    "\n"+skill.name+"\n"
+                                ))}
+                            </div>
+                            <br/>
+                        </Col>
                     </Row>
                 </Col>
                 <Col>
+                    <img src={girl} alt="Girl" />
                 </Col>
             </Row>
+                </div>
 
         ))
 
@@ -110,8 +115,14 @@ class Home extends Component<Props,State>{
                 {Header.call(this)}
                 {Tifanibar.call(this)}
                 <main>
-
+                    <Row>
+                    <Col sm={1}/>
+                    <Col>
                     {this.onewayshowing()}
+                    </Col>
+                    <Col sm={3}/>
+                    </Row>
+
 
                 </main>
 
