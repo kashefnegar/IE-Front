@@ -4,15 +4,21 @@ import axios from 'axios'
 import Header from "src/view/container/header/header";
 import Footer from "src/view/container/footer/footer";
 import "./home.scss";
-import {Button, ButtonGroup, Col, Container, Form, FormControl, InputGroup, Row, ToggleButton} from "react-bootstrap";
-import {any, object} from "prop-types";
-import * as ts from "typescript/lib/tsserverlibrary";
-// import Project = ts.server.Project;
-// import {ServerResponse} from "http";
-// var json : any;
-var discription :string = 'این سایت بهترین کار را برای شما پیدا می کند';
-// const data =[{"name":"test1"},{"name":"test2"}];
-// const listItems = data.map((d) => <li key={d.name}>{d.name}</li>);
+import {
+    Button,
+    ButtonGroup,
+    Card,
+    Col,
+    Container,
+    Form,
+    FormControl,
+    InputGroup, ListGroup,
+    Row,
+    ToggleButton
+} from "react-bootstrap";
+import Tifanibar from "src/view/container/header/tifanibar";
+
+
 class Home extends Component<Props,State>{
     constructor(parameters: { Props: Props, State: State }) {
         let {Props, State} = parameters;
@@ -37,14 +43,57 @@ class Home extends Component<Props,State>{
                 console.log('server errorrrr')
             });
     }
-            // .then(response => {
-            //     this.setState(
-            //         {
-            //             data:response.data})
-            // }
-            //     // const data = resp.data.data.children.map(obj => obj.data);
-            //     // this.setState({data:response.data})
-            // }
+    onewayshowing(){
+        return(
+            this.state.data.map( (  Projects: Projects) =>(
+
+            <Row key={Projects.id}>
+                <Col>
+                </Col>
+                <Col sm={8}>
+                    <Row>
+                        <div className={"firstline"}>
+                            <Col >
+                                <div className={"title_home"}>
+                                    {Projects.title }
+                                </div>
+                            </Col>
+                            <Col sm={2}>
+                                <div className={"time_remain"}>
+                                    {" زمان باقی مانده: "}  {Projects.deadline}
+                                </div>
+                            </Col>
+                        </div>
+                    </Row>
+                    <Row>
+
+                        <div className={"discription"}>
+                            {Projects.description}
+                        </div>
+                        <div className={"budget"}>
+                            بوجه: {Projects.budget} تومان
+                        </div>
+                        <div className={"skills"}>
+                            <div className={"skill_title"}>
+                                مهارت ها:
+                            </div>
+
+                            {Projects.needskil.map((skill:skil)=>(
+
+                                "\n"+skill.name+"\n"
+                            ))}
+                        </div>
+                        <br/>
+                    </Row>
+                </Col>
+                <Col>
+                </Col>
+            </Row>
+
+        ))
+
+        )
+    }
 
     render() {
         // console.log("responseeeee");
@@ -59,67 +108,10 @@ class Home extends Component<Props,State>{
 
             <div>
                 {Header.call(this)}
+                {Tifanibar.call(this)}
                 <main>
-                    <div className={"tifani bar"}>
-                    <Container>
-                        <Row>
-                            {/*<Col>*/}
-                            <h3 > جاب اونجا خوب است! </h3>
-                            {/*</Col>*/}
 
-                        </Row>
-                        <Row>
-                            {/*<Col>*/}
-                            <p>{discription}</p>
-                            {/*</Col>*/}
-                        </Row>
-
-                        <Col sm={10}>
-                            <InputGroup className="mb-3">
-                                <FormControl
-                                    placeholder="جستجو در جاب اونجا"
-                                    aria-label="Recipient's username"
-                                    aria-describedby="basic-addon2"
-                                />
-
-                                <InputGroup.Append>
-                                    <Button variant="outline-secondary">جستجو </Button>
-                                </InputGroup.Append>
-                            </InputGroup>
-                        </Col>
-                    </Container>
-                    </div>
-                    <div className={"project_information"}>
-
-                    </div>
-
-                    <p>
-
-                        {this.state.data.map( (  Projects: Projects) =>(
-
-
-                            <li key={Projects.id}>
-                                    {
-                                        Projects.title
-                                    }
-                                    {
-                                        Projects.description
-                                    }
-                                    {Projects.budget}
-                                    {Projects.needskil.map((skill:skil)=>(
-                                        skill.name
-                                    ))}
-                                </li>
-                            ))
-                        }
-
-
-
-
-
-
-
-                    </p>
+                    {this.onewayshowing()}
 
                 </main>
 
