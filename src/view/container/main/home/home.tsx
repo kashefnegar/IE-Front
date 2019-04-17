@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 // import ReactJson from "react-json-view";
 import girl from "../../../template/photo/icon/png/girl.png"
+import mona from "../../../template/photo/slideShow/1.jpg"
 import axios from 'axios'
 import Header from "src/view/container/header/header";
 import Footer from "src/view/container/footer/footer";
@@ -22,7 +23,27 @@ import {
 import Tifanibar from "src/view/container/header/tifanibar";
 
 
+var users = {
+    "users":[
+        {
+            "name":"mona",
+            "jobtitle":"programer",
+            "img":mona
+        },
+        {
+            "name":"life",
+            "jobtitle":"smile",
+            "img":mona
+        },
+        {
+            "name":"hi",
+            "jobtitle":"dont work",
+            "img":mona
+        }
+    ]
+}
 class Home extends Component<Props,State>{
+
     constructor(parameters: { Props: Props, State: State }) {
         let {Props, State} = parameters;
         super(Props, State);
@@ -31,6 +52,7 @@ class Home extends Component<Props,State>{
         };
         // this.handleClick = this.handleClick.bind(this)
     }
+
     componentDidMount(): void
      {
         axios.get('http://localhost:8080/projects')
@@ -46,7 +68,8 @@ class Home extends Component<Props,State>{
                 console.log('server errorrrr')
             });
     }
-    onewayshowing(){
+
+    project_list(){
         return(
             this.state.data.map( (  Projects: Projects) =>(
 
@@ -100,15 +123,57 @@ class Home extends Component<Props,State>{
         )
     }
 
+    search_user(){
+        return(
+            <div className={"card-body card-body-cascade text-right wow fadeIn"}>
+                <Row>
+                    <Col>
+                        <InputGroup className={"search_user"}>
+                            <FormControl
+                                placeholder="جستجو نام کاربر"
+                                aria-label="Username"
+                                aria-describedby="basic-addon1"
+                            />
+                        </InputGroup>
+                    </Col>
+                </Row>
+            </div>
+        );
+    }
+    online_users(){
+
+        return(
+            <div className={"online_user"}>
+                {this.search_user()}
+                {users.users.map((user)=>(
+                    <div className={"card-body card-body-cascade text-right wow fadeIn"}>
+                        <Row>
+                            <Col>
+                                <img src={user.img}/>
+                            </Col>
+                            <Col>
+                                <Row>
+                                    <Col>
+                                        { user.name}
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col className={"titlejob"}>
+                                        {user.jobtitle}
+                                    </Col>
+                                </Row>
+                            </Col>
+                        </Row>
+
+                    </div>
+                ))}
+
+            </div>
+
+        );
+
+    }
     render() {
-        // console.log("responseeeee");
-        console.log(this.state.data);
-        // @ts-ignore
-        // @ts-ignore
-        // @ts-ignore
-        // @ts-ignore
-        // @ts-ignore
-        // @ts-ignore
         return (
 
             <div>
@@ -116,11 +181,13 @@ class Home extends Component<Props,State>{
                 {Tifanibar.call(this)}
                 <main>
                     <Row>
-                    <Col sm={1}/>
-                    <Col>
-                    {this.onewayshowing()}
-                    </Col>
-                    <Col sm={3}/>
+                        <Col sm={1}/>
+                        <Col>
+                            {this.project_list()}
+                        </Col>
+                        <Col sm={3}>
+                            {this.online_users()}
+                        </Col>
                     </Row>
 
 
@@ -159,6 +226,13 @@ interface Projects {
 interface skil {
     name:string
     point:number
+}
+
+interface users {
+    name:string
+    jobtitle:string
+    img:string
+
 }
 
     export default Home;

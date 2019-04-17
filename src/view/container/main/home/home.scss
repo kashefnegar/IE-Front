@@ -52,6 +52,8 @@ div.col-sm-8 div.card-body{
 }
 div.card-body.card-body-cascade.text-right.wow.fadeIn {
   //direction: rtl;
+  margin-right: 20px;
+  padding: 5px;
   background: #ffffff;
   margin-top: -20px;
   margin-bottom: 43px;
@@ -70,7 +72,27 @@ div.card.card-cascade.wider.reverse .card-body.card-body-cascade {
 }
 img{
   width: 106px;
+  border-radius:5px;
 
+}
+
+div.search_user.input-group{
+  border: 0px;
+}
+div.search_user.input-group input.form-control{
+
+  place-content: center;
+  background: #f9f9f9;
+  border:0px;
+  direction: rtl;
+  border-radius:2px;
+}
+div.online_user{
+  direction: rtl;
+}
+
+div.titlejob{
+  color: #969696;
 }
 //.card-body :first-child{
 //
