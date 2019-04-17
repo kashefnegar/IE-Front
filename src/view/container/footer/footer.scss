@@ -1,20 +1,48 @@
-// ///@import "bootstr";
-//@import "../../template/style/base.css";
-// @import "~bootstrap/scss/navbar";
-////p.navbar-text{
-////   //aria-posinset:'center';
-////}
+
 footer {
+  display: block;
+  //position: relative;
+  visibility: visible;
   background: #212121;
   color: #9d9d9d;
-  text-align: center;
+  margin-top: 100%;
+  //text-align: center;
+  //grid-row-start: 2;
+  //grid-row-end: 3;
+  //padding-left: 0%;
 //<<<<<<< HEAD
-  //position: absolute;
+  position: absolute;
 //=======
   //position: ;
 //>>>>>>> 268e4b6644c4fab4b7bea7a5e007e9c39fc555fe
   bottom: 0;
   width: 100%;
-  height: 3rem;
-  /*min-height: 100vh;*/
+  //height: 40px;
+  flex-shrink: 0;
+
+}
+
+div.footer-copyright {
+  overflow: hidden;
+  background: #212121;
+  color: #9d9d9d;
+  width: 100%;
+  height: 40px;
+
+}
+.text-center {
+  text-align: center;
+  //justify-content: center;
+  //align-items: center;
+
+}
+.pt-1, .py-1 {
+  padding-top: 18px !important;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+div {
+  display: block;
 }
