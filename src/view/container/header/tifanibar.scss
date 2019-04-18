@@ -26,6 +26,7 @@
 
 }
 .tifani{
+  z-index: -1;
   margin: 0px;
   padding: 50px;
   padding-right: 90px;
@@ -40,6 +41,7 @@
 
 }
 .search_form{
+  z-index: -1;
   place-content:center ;
   direction: rtl;
 }
