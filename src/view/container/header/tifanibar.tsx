@@ -48,7 +48,7 @@ function type_tifanibar(search:boolean=true ,trapezius:boolean=false){
                     <Row className={"terapazius_row"}>
                     </Row>
                     <Row>
-                        <Col sm={2}>
+                        <Col sm={3}>
                             <div className={"trapezius"}>
                             </div>
                         </Col>
