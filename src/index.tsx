@@ -6,13 +6,14 @@ import * as serviceWorker from './serviceWorker';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import Login from "src/view/container/main/login/login";
 import Home from "src/view/container/main/home/home";
-
+import UserProfile from "src/view/container/main/User_profile/user_profile";
 ReactDOM.render((
     <Router>
         {/*<Route path = "/" component = {App}>*/}
         {/*</Route>*/}
         <Route exact path="/login" component={Login} />
         <Route exact path = "/home" component = {Home}/>
+        <Route exact path = "/user/:userid" component = {UserProfile}/>
     </Router>
 ), document.getElementById('root'));
 // ReactDOM.render(<Router>
