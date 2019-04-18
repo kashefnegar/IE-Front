@@ -2,18 +2,20 @@
 .text-center{
   padding: 20px;
 }
-.card.card-cascade.wider.reverse .card-body.card-body-cascade{
-  margin-top: -120px;
-  height: fit-content;
-  width: auto;
-}
-strong{
 
-}
-.card.card-cascade.wider.reverse .card-body.card-body-cascade img{
-  direction: rtl;
-  width: 80%;
-}
+//.card.card-cascade.wider.reverse .card-body.card-body-cascade img{
+//  direction: rtl;
+//  width.card.card-cascade.wider.reverse .card-body.card-body-cascade{
+//    //width:50%;
+//    margin-top: -120px;
+//    height: fit-content;
+//    width: auto;
+//  }
+  strong{
+    padding-right: 1%;
+    padding-left: 2%;
+  }
+//}
 h4.buget{
   /*font-weight:bold;*/
   color: #428c94;
@@ -37,13 +39,14 @@ hr{
   margin-right: -11px;
 }
 
-.row.roww{
+.row2{
   background: #f9f9f9 ;
   /*border-top-style: double;*/
   border-bottom-style: groove;
   border-color: #e1e1e1;
   border-radius:1px;
   border-bottom-width: 1px;
+  padding-top: 2%;
 
 
 }
@@ -51,6 +54,8 @@ hr{
 .row{
   margin-right: -12px;
   margin-left: -12px;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 h3.skills{
@@ -71,6 +76,7 @@ h3.skills{
   align-content: center;
   margin-bottom: 19px;
   border-radius: 4px;
+  padding-left: 1%;
 }
 .skills_{
   font-size: small;
@@ -108,4 +114,44 @@ h4.warning{
   padding-top: 20px;
   padding-bottom: 20px;
 
+}
+.row2.col-sem-2{
+  width:70%;
+}
+div.col-sem-2{
+  height:50%;
+}
+div.MoneyBage img{
+  width: 30px;
+  padding-left: 0.8%;
+}
+
+div.Deadline img{
+  width: 28px;
+  padding-left: 0.8%;
+}
+
+div.ProjectImg img{
+  width: 100%;
+  padding-left: 0.8%;
+}
+
+div.CheckMark img{
+  width: 28px;
+  padding-left: 0.8%;
+}
+
+div.Danger img{
+  width: 40px;
+  padding-left: 0.5%;
+}
+
+div.card-body.card-body-cascade.text-right.wow.fadeIn{
+  width: 80%;
+  margin-left: 10%;
+  padding: 0;
+}
+
+div.col-sm-9{
+  padding-top: 1%;
 }

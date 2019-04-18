@@ -20,8 +20,11 @@ import {
     ToggleButton
 } from "react-bootstrap";
 
-
-
+import Deadline from "../../../template/photo/icon/png/003-deadline.png";
+import MoneyBage from "../../../template/photo/icon/png/004-money-bag.png";
+import CheckMoney from "../../../template/photo/icon/png/001-check-mark.png";
+import ProjectImg from "../../../template/photo/icon/png/girl.png";
+import Danger from "../../../template/photo/icon/png/002-danger.png";
 
 
 
@@ -56,24 +59,36 @@ class ProjectPage extends Component<Props,State>{
         return (
          <div>
         {Header.call(this)}
-        {Tifanibar.call(this)}
+        {Tifanibar.call(this, false , false)}
 
-            <div className="card-body card-body-cascade text-right wow fadeIn" data-wow-delay="0.2s">
+            <div className={"card-body card-body-cascade text-right wow fadeIn"}>
                 <div className="row">
                     <div className="col-sm-9">
                     <h2 className="card-title"><strong>پروژه طراحی سایت جاب اونجا</strong></h2>
-                    <h4 className="red-text"><strong>مهلت تمام شده </strong>
-                        <img alt="deadline" src="../../../template/photo/icon/png/003-deadline.png"></img>
+                    <h4 className="red-text">
+                        <div className={"Deadline"}>
+                            <img  src = {Deadline} ></img>
+                            <strong>مهلت تمام شده </strong>
+                        </div>
                     </h4>
-                    <h4 className="buget"><strong>بودجه : ۲۵۰۰ تومان</strong>
-                        <img alt="money bag" src="../../../template/photo/icon/png/004-money-bag.png"></img>
+                    <h4 className="buget">
+                        <div className={"MoneyBage"}>
+                        <img src = {MoneyBage}></img>
+                        <strong>بودجه : ۲۵۰۰ تومان</strong>
+                        </div>
+
                     </h4>
-                    <h4 className="winer"><strong>
+                    <h4 className="winer">
+                        <div className = {"CheckMark"}>
+                            <img src = {CheckMoney}></img>
+                    <strong>
                         وحید محمدی
                     </strong>
-                        <img alt="cheak mark" src="../../../template/photo/icon/png/001-check-mark.png"></img>
+
+                        </div>
                     </h4>
                     <h3><strong> توضیحات</strong></h3>
+
                     <h4 className="ditail">
                         &nbsp; &nbsp; لورم الپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
                         گرافیک است. چاپگر ها و متون بلکه روزنامه و مجله در ستون و سطر آنچنان که لازم است . لورم ایپسوم
@@ -81,48 +96,52 @@ class ProjectPage extends Component<Props,State>{
                         متون بلکه روزنامه و محله در ستون و سطر آنچنان که لازم است.
                     </h4>
                 </div>
-                <div className="col-sm-3">
-                    <img alt="project img" src="../../../template/photo/icon/png/girl.png"></img>
+                <div className={"col-sm-2"}>
+                    <div className={"ProjectImg"}>
+                        <img src = {ProjectImg}></img>
+                    </div>
                 </div>
             </div>
 
-                <div className="row roww">
-                    <div className="col">
-                        <h3 className="skills"><strong> مهارت های لازم: </strong></h3>
-                        <div className="col-sm-2">
+                <div className={"row2"}>
+                    <h3 className="skills"><strong> مهارت های لازم: </strong></h3>
+                    <div className={"columns"}>
+                        <div className={"col-sm-2"}>
                             <div className="skills_">
                                 <p> HTML</p>
                                 <div className="points"> 5</div>
                             </div>
                         </div>
-                        <div className="col-sm-2">
+                        <div className={"col-sm-2"}>
                             <div className="skills_">
                                 <p> CSS</p>
                                 <div className="points"> 3</div>
                             </div>
                         </div>
-                        <div className="col-sm-2">
+                        <div className={"col-sm-2"}>
                             <div className="skills_">
                                 <p> JavaScript</p>
                                 <div className="points"> 16</div>
                             </div>
                         </div>
-                        <div className="col-sm-2">
+                        <div className={"col-sm-2"}>
                             <div className="skills_">
                                 <p> TypeScript</p>
                                 <div className="points"> 2</div>
                             </div>
                         </div>
-                    </div>
+                </div>
                 </div>
                 <div className="row row_">
                     <div className="col">
                         <h4 className="warning">
-                            <img alt="danger" src="../../../template/photo/icon/png/002-danger.png"></img>
+                            <div className={"Danger"}>
+                            <img src = {Danger}></img>
+
                                 <strong>
                                     مهلت ارسال پیشنهاد برای این پروژه به پایان رسیده است !
                                 </strong>
-
+                            </div>
                         </h4>
 
                     </div>
