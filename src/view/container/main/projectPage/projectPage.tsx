@@ -36,25 +36,93 @@ class ProjectPage extends Component<Props,State>{
         this.state= {
             data:[]
         };
-        // this.handleClick = this.handleClick.bind(this)
     }
 
-    // componentDidMount(): void
-    // {
-    //     axios.get('http://localhost:8080/projects')
-    //         .then(response =>{
-    //
-    //             // transformResponse: (r: ServerResponse) => r.data
-    //             // console.log(response.data.Projects)
-    //             this.setState({
-    //                     data:response.data.Projects
-    //                 }
-    //             )
-    //         },error=>{
-    //             console.log('server errorrrr')
-    //         });
-    // }
+    componentDidMount(): void
+    {
+        axios.get('http://localhost:8080/project/')
+            .then(response =>{
 
+                // transformResponse: (r: ServerResponse) => r.data
+                // console.log(response.data.Projects)
+                this.setState({
+                        data:response.data.Project
+                    }
+                )
+            },error=>{
+                console.log('server errorrrr')
+            });
+    }
+    cheaking(deadline:number){
+        // deadline=0;
+        if(deadline>0){
+            return( <div className={"time_remain"}>
+                {" زمان باقی مانده: "}  {deadline%10000}
+            </div>);
+        }
+        else {
+            return(
+                <h4 className="red-text">
+                    <div className={"Deadline"}>
+                        <img  src = {Deadline} ></img>
+                        <strong>مهلت تمام شده </strong>
+                    </div>
+                </h4>
+            )
+        }
+    }
+
+    winner(winner:string){
+        return(
+            <h4 className="winer">
+                <div className = {"CheckMark"}>
+                    <img src = {CheckMoney}></img>
+                    <strong>
+                        {winner}
+                    </strong>
+
+                </div>
+            </h4>
+        )
+    }
+    // @ts-ignore
+    projectInfo(){
+        return(
+        this.state.data.map( ( Project: ProjectT)) =>(
+            <h2 className="card-title"><strong>{ProjectT.title}</strong></h2>
+                {this.cheaking(ProjectT.deadline)}
+
+            <h4 className="buget">
+                <div className={"MoneyBage"}>
+                    <img src = {MoneyBage}></img>
+                    <strong>بودجه : {Project.budjet}</strong>
+                </div>
+            </h4>
+                if({ProjectT.deadline} = 0 )
+                    {this.winner(ProjectT.winner)}
+
+        <h3><strong> توضیحات</strong></h3>
+
+        <h4 className="ditail">
+            &nbsp; &nbsp;{ProjectT.Info}
+        </h4>
+        )
+        )
+    }
+    projectImg(){
+        return(
+            <div className={"ProjectImg"}>
+                <img src = {ProjectImg}></img>
+            </div>
+        )
+    }
+    projectNeeds(){
+        return(
+            this.state.data.map( (Skill:  skil))=>(
+
+            )
+        )
+    }
     render() {
         return (
          <div>
@@ -64,42 +132,11 @@ class ProjectPage extends Component<Props,State>{
             <div className={"card-body card-body-cascade text-right wow fadeIn"}>
                 <div className="row">
                     <div className="col-sm-9">
-                    <h2 className="card-title"><strong>پروژه طراحی سایت جاب اونجا</strong></h2>
-                    <h4 className="red-text">
-                        <div className={"Deadline"}>
-                            <img  src = {Deadline} ></img>
-                            <strong>مهلت تمام شده </strong>
-                        </div>
-                    </h4>
-                    <h4 className="buget">
-                        <div className={"MoneyBage"}>
-                        <img src = {MoneyBage}></img>
-                        <strong>بودجه : ۲۵۰۰ تومان</strong>
-                        </div>
+                        {this.projectInfo()}
 
-                    </h4>
-                    <h4 className="winer">
-                        <div className = {"CheckMark"}>
-                            <img src = {CheckMoney}></img>
-                    <strong>
-                        وحید محمدی
-                    </strong>
-
-                        </div>
-                    </h4>
-                    <h3><strong> توضیحات</strong></h3>
-
-                    <h4 className="ditail">
-                        &nbsp; &nbsp; لورم الپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                        گرافیک است. چاپگر ها و متون بلکه روزنامه و مجله در ستون و سطر آنچنان که لازم است . لورم ایپسوم
-                        متن ساختگی با تولید سادگی نا مفهوم از صنعت جاپ و با استقاده از طراحان گرافیک است . چاپگرها و
-                        متون بلکه روزنامه و محله در ستون و سطر آنچنان که لازم است.
-                    </h4>
-                </div>
-                <div className={"col-sm-2"}>
-                    <div className={"ProjectImg"}>
-                        <img src = {ProjectImg}></img>
                     </div>
+                <div className={"col-sm-2"}>
+                    {this.projectImg()}
                 </div>
             </div>
 
@@ -167,7 +204,7 @@ interface ServerResponse {
     // data: Projects
 }
 
-interface Projects {
+interface ProjectT {
     needskil:[]
     userREQ:[]
     description:string
@@ -175,8 +212,17 @@ interface Projects {
     title:string
     deadline:number
     budget:number
-
-
+    winner:string
+}
+interface Project {
+    needskil:[]
+    userREQ:[]
+    description:string
+    id:string
+    title:string
+    deadline:number
+    budget:number
+    winner:string
 }
 interface skil {
     name:string
