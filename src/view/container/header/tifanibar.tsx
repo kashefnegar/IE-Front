@@ -48,10 +48,11 @@ function type_tifanibar(search:boolean=true ,trapezius:boolean=false){
                     <Row className={"terapazius_row"}>
                     </Row>
                     <Row>
-                        <Col sm={3}>
+                        <Col sm={3} className={"trapezius_1"}>
                             <div className={"trapezius"}>
                             </div>
                         </Col>
+                        {/*<Col sm={3}/>*/}
 
                     </Row>
                 </Container>
