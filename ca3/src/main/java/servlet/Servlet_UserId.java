@@ -47,6 +47,8 @@ public class Servlet_UserId extends MyServlet {
            resp_massage.put("jobtitle",user.getJobTitle());
            resp_massage.put("bio", user.getBio());
            resp_massage.put("skills", user.getSkill());
+           resp_massage.put("image", user.getProfilePictureURL());
+            System.out.println("fuck");
            resp_massage.put("other", testingUserather(path[2]));
 //            RequestDispatcher view=getServletContext().getRequestDispatcher("/userprofile.jsp");
 //            view.forward(request, response);

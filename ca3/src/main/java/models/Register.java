@@ -12,6 +12,10 @@ public class  Register {
     private String username;
     private String bio;
 
+    public String getProfilePictureURL() {
+        return profilePictureURL;
+    }
+
     Register(String id, String firstName, String lastName, String jobTitle, String profilePictureURL, ArrayList<Skills> skill, String bio) {
         this.id = id;
         this.firstName = firstName;
