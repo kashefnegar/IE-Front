@@ -35,13 +35,19 @@ hr{
   border-radius:1px;
   border-bottom-width: 1px;
   padding-top: 2%;
+  width:100%;
+  padding: 1%;
+  margin:12.5px;
+  border-top-style: dashed;
+  border-top-color: #4b9094;
 }
 
 .row{
   margin-right: -12px;
   margin-left: -12px;
   padding-top: 2%;
-  padding-bottom: 2%;
+  padding-bottom: 0;
+
 }
 
 h3.skills{
@@ -127,6 +133,7 @@ div.CheckMark img{
 div.Danger img{
   width: 40px;
   padding-left: 0.5%;
+  padding-right: 0.5%;
 }
 
 div.card-body.card-body-cascade.text-right.wow.fadeIn{
