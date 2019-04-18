@@ -6,7 +6,7 @@
 
 
 .trapezius{
-  width: 200px;
+  width: 150px;
   height: 20px;
   background: #82c7cc;
   transform: perspective(10px) rotateX(1deg);
@@ -92,11 +92,12 @@ form{
 
 div.terapazius_row{
   //width: 10px;
-  height: 109px;
+  height: 108px;
 }
 div.col-sm-3{
+  padding-bottom: 4%;
   direction: rtl;
-  margin: 5px;
+  margin:10px;
   display: flow-root;
   border: 0px;
   box-shadow: 0px 0px 0px grey;
