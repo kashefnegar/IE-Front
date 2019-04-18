@@ -35,7 +35,7 @@ class UserProfile extends Component <Props,State>{
         return (
             <div>
                 {Header.call(this)}
-                {Tifanibar.call(this,false)}
+                {Tifanibar.call(this,false ,false)}
                 <main>
 
                 </main>
