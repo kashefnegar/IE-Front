@@ -31,13 +31,17 @@ class UserProfile extends Component <Props,State>{
     }
 
     render() {
-        console.log(this.state.data)
+        // console.log(this.state.data)
         return (
             <div>
                 {Header.call(this)}
                 {Tifanibar.call(this,false ,true)}
                 <main>
-
+                    <Row>
+                        <Col>
+                            <img />
+                        </Col>
+                    </Row>
                 </main>
 
                 {Footer.call(this)}
@@ -55,5 +59,15 @@ interface Props {
 interface State {
     data: []
 
+}
+
+interface data {
+
+
+}
+
+interface skil {
+    name:string
+    point:number
 }
 export default UserProfile;

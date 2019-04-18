@@ -44,9 +44,20 @@ function type_tifanibar(search:boolean=true ,trapezius:boolean=false){
     else{
         if (trapezius){
             return(
-                <div className={"trapezius"}>
+                <Container>
+                    <Row className={"terapazius_row"}>
+                    </Row>
+                    <Row>
+                        <Col sm={2}>
+                            <div className={"trapezius"}>
+                            </div>
+                        </Col>
+                        <Col sm={2}/>
 
-                </div>
+                    </Row>
+                </Container>
+
+
             );
 
         }

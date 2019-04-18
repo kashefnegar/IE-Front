@@ -4,6 +4,16 @@
   box-sizing: content-box;
 }
 
+
+.trapezius{
+  width: 200px;
+  height: 20px;
+  background: #82c7cc;
+  transform: perspective(10px) rotateX(1deg);
+  margin: 50px;
+  box-shadow: -10px 0px 1px #a5dfe4;
+}
+
 .tifani h3{
 
   //position: absolute;
@@ -77,6 +87,27 @@ form{
   //padding-left: 0px;
   //padding-right: 0px;
 
+
+}
+
+div.terapazius_row{
+  //width: 10px;
+  height: 170px;
+}
+div.col-sm-2{
+  direction: rtl;
+  margin: 5px;
+  display: flow-root;
+  border: 0px;
+  box-shadow: 0px 0px 0px grey;
+
+  background: inherit;
+
+  width: -webkit-fit-content;
+
+  height: -webkit-fit-content;
+
+  align-content: center;
 
 }
 .input-group {
