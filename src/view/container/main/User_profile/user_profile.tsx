@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import Header from "src/view/container/header/header";
 import Tifanibar from "src/view/container/header/tifanibar";
-import {Col, Row} from "react-bootstrap";
+import {ButtonGroup, Col, DropdownButton, Row, Dropdown} from "react-bootstrap";
 import Footer from "src/view/container/footer/footer";
 import "./user_profile.scss";
 // @ts-ignore
@@ -24,7 +24,8 @@ class UserProfile extends Component <Props,State>{
             jobtitle:'',
             bio:'',
             id:'',
-            lastname:''
+            lastname:'',
+            addedskill:[]
         }
 
     }
@@ -46,11 +47,36 @@ class UserProfile extends Component <Props,State>{
                 )
             }, error=>{
                 console.log('server errror')
-            })
+            });
+        axios.get("http://localhost:8080/addSkill")
+            .then( response=>{
+                this.setState(
+                    {
+                        addedskill:response.data.skills
+                    }
+                )
+            },
+                error=>{
+                    console.log('server errror')
+                }
+        );
+
         // const imageSrc = ImageData[this.state.image]
 
 
     }
+    dropbox(){
+        return(
+            <Col >
+                <DropdownButton id="dropdown-item-button" title="--انتخاب مهارت --">
+                    {this.state.addedskill.map((skill:skil)=>(
+                        <Dropdown.Item as="button">{skill.name}</Dropdown.Item>
+                    ))}
+                </DropdownButton>;
+            </Col>
+        );
+    }
+
 
     render() {
         // {console.log(`../../../template/photo/slideShow${this.state.image}`)}
@@ -59,10 +85,9 @@ class UserProfile extends Component <Props,State>{
         // path =path.slice(0, path.lastIndexOf('.'));
         // {console.log(path)}
         // {let hi = require(this.state.image)}
-
+        {console.log(this.state.addedskill)}
         //
         return (
-
             <div>
 
                 {Header.call(this)}
@@ -96,11 +121,15 @@ class UserProfile extends Component <Props,State>{
                         </Col>
                         <Col sm={1}/>
                     </Row>
-                    <Row>
+                    <Row className={"user_information"}>
+                        <Col sm={1}/>
+                        <Col sm={1} className={"username"}>
+                            مهارت ها:
+                        </Col>
 
                     </Row>
 
-
+                    {this.dropbox()}
 
                 </main>
 
@@ -124,7 +153,8 @@ interface State {
     jobtitle:"",
     bio:"",
     id: "",
-    lastname:""
+    lastname:"",
+    addedskill:[]
     // data:info
 
 }
