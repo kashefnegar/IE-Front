@@ -163,3 +163,17 @@ div.points:hover{
   background-color: #ff270c;
   color: white;
 }
+h4.red-text div.Deadline strong{
+  color:red;
+}
+h4.gray-text div.Deadline strong{
+  color : gray;
+}
+
+h4.warning div.Tick strong{
+  color: #22b14c;
+}
+h4.warning div.Tick img{
+  width: 30px;
+  margin-right: 1%;
+}
