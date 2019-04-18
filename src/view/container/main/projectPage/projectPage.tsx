@@ -25,6 +25,7 @@ import MoneyBage from "../../../template/photo/icon/png/004-money-bag.png";
 import CheckMoney from "../../../template/photo/icon/png/001-check-mark.png";
 import ProjectImg from "../../../template/photo/icon/png/girl.png";
 import Danger from "../../../template/photo/icon/png/002-danger.png";
+import DeadlineGray from "../../../template/photo/icon/png/005-deadline-gray.png";
 
 
 
@@ -133,12 +134,22 @@ class ProjectPage extends Component<Props,State>{
                  <div className="row">
                      <div className="col-sm-9">
                          <h2 className="card-title"><strong>پروژه طراحی سایت جاب اونجا</strong></h2>
-                             <h4 className="red-text">
-                                 <div className={"Deadline"}>
-                                     <img  src = {Deadline} ></img>
-                                     <strong>مهلت تمام شده </strong>
-                                 </div>
-                             </h4>
+                             {/*in project-deadline-reached*/}
+                             {/*<h4 className={"red-text"}>*/}
+                                 {/*<div className={"Deadline"}>*/}
+                                     {/*<img  src = {Deadline} ></img>*/}
+                                     {/*<strong>مهلت تمام شده </strong>*/}
+                                 {/*</div>*/}
+                             {/*</h4>*/}
+                             {/**/}
+
+                            <h4 className="gray-text">
+                                <div className={"Deadline"}>
+                                    <img  src = {DeadlineGray} ></img>
+                                    <strong>زمان باقی مانده : 17 دقیقه و 25 ثانیه </strong>
+                                </div>
+                            </h4>
+
                              <h4 className="buget">
                                      <div className={"MoneyBage"}>
                                          <img src = {MoneyBage}></img>
@@ -146,16 +157,17 @@ class ProjectPage extends Component<Props,State>{
                                      </div>
 
                                  </h4>
+                                     {/*use project_deadline_reached */}
+                                     {/*<h4 className="winer">*/}
+                                         {/*<div className = {"CheckMark"}>*/}
+                                             {/*<img src = {CheckMoney}></img>*/}
+                                             {/*<strong>*/}
+                                                 {/*وحید محمدی*/}
+                                             {/*</strong>*/}
 
-                                     <h4 className="winer">
-                                         <div className = {"CheckMark"}>
-                                             <img src = {CheckMoney}></img>
-                                             <strong>
-                                                 وحید محمدی
-                                             </strong>
-
-                                         </div>
-                                     </h4>
+                                         {/*</div>*/}
+                                     {/*</h4>*/}
+                                     {/**/}
                                      <h3><strong> توضیحات</strong></h3>
 
                                      <h4 className="ditail">
@@ -208,16 +220,28 @@ class ProjectPage extends Component<Props,State>{
                  </div>
                  <div className="row row_">
                      <div className="col">
+                         {/*project deadline reached*/}
+                         {/*<h4 className="warning">*/}
+                            {/**/}
+                             {/*<div className={"Danger"}>*/}
+                                 {/*<img src = {Danger}></img>*/}
+
+                                 {/*<strong>*/}
+                                     {/*مهلت ارسال پیشنهاد برای این پروژه به پایان رسیده است !*/}
+                                 {/*</strong>*/}
+
+                             {/*</div>*/}
+
                          <h4 className="warning">
 
-                             <div className={"Danger"}>
-                                 <img src = {Danger}></img>
+                            <div className={"Tick"}>
+                            <img src = {CheckMoney}></img>
 
-                                 <strong>
-                                     مهلت ارسال پیشنهاد برای این پروژه به پایان رسیده است !
-                                 </strong>
+                         <strong>
+                             شما قبلا پیشنهاد خود را ثبت کرده اید
+                         </strong>
 
-                             </div>
+                         </div>
                          </h4>
 
                      </div>
