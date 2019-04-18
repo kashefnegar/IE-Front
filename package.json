@@ -10,12 +10,15 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.0",
-    "mdbootstrap": "^4.7.3",
     "react": "^16.8.6",
-    "react-bootstrap": "^1.0.0-beta.6",
+    "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.8.4",
+    "react-image": "^2.1.1",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
+    "react-transition-group": "^2.9.0",
+    "request": "^2.88.0",
     "typescript": "3.4.3"
   },
   "scripts": {
@@ -36,6 +39,7 @@
   "devDependencies": {
     "@types/react-router-dom": "^4.3.2",
     "node-sass": "^4.11.0",
-    "react-json-view": "^1.19.1"
+    "react-json-view": "^1.19.1",
+    "react-universal-component": "^4.0.0"
   }
 }

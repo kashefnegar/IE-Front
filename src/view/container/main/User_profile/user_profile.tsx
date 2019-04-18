@@ -1,18 +1,32 @@
+
 import React, {Component} from 'react';
 import Header from "src/view/container/header/header";
 import Tifanibar from "src/view/container/header/tifanibar";
 import {Col, Row} from "react-bootstrap";
 import Footer from "src/view/container/footer/footer";
+import "./user_profile.scss";
+// @ts-ignore
+// import universal from "react-universal-component/dist/index.js";
 import axios from "axios";
+import {any} from "prop-types";
 
 
 class UserProfile extends Component <Props,State>{
     constructor(parameters: { Props: Props, State: State }) {
         let {Props, State} = parameters;
-        super(Props, State);
-        this.state = {
-            data: []
-        };
+        super(Props);
+        // @ts-ignore
+        this.state={
+            skills: [],
+            image:'',
+            firstname:'',
+            other:true,
+            jobtitle:'',
+            bio:'',
+            id:'',
+            lastname:''
+        }
+
     }
     componentDidMount(): void{
         // @ts-ignore
@@ -20,28 +34,74 @@ class UserProfile extends Component <Props,State>{
         axios.get("http://localhost:8080/user/"+userid)
             .then(response=>{
                 this.setState({
-                        data:response.data
+                        skills:response.data.skills,
+                        image:response.data.image,
+                        firstname:response.data.firstname,
+                        other:response.data.other,
+                        jobtitle:response.data.jobtitle,
+                        bio:response.data.bio,
+                        id:response.data.id,
+                        lastname:response.data.lastname
                     }
                 )
             }, error=>{
                 console.log('server errror')
             })
+        // const imageSrc = ImageData[this.state.image]
 
 
     }
 
     render() {
-        // console.log(this.state.data)
+        // {console.log(`../../../template/photo/slideShow${this.state.image}`)}
+        // let path = this.state.image;
+        // @ts-ignore
+        // path =path.slice(0, path.lastIndexOf('.'));
+        // {console.log(path)}
+        // {let hi = require(this.state.image)}
+
+        //
         return (
+
             <div>
+
                 {Header.call(this)}
                 {Tifanibar.call(this,false ,true)}
                 <main>
-                    <Row>
-                        <Col>
-                            <img />
+
+                    {/*<div className="card-body card-body-cascade text-right wow fadeIn" data-wow-delay="0.2s">*/}
+
+                    <Row className={"user_information"}>
+                        <Col sm={3} className={"user_information"} >
+                            {/*<Image source={IMAGES[this.state.image]} />*/}
+                            <img src={ require( "../../../template/photo/slideShow/2.jpg")} alt={"girl"} />
+                        </Col>
+                        <Col  >
+                            <Row className={"username_row"}>
+                                <Col sm={2} className={"username"}>
+                                    {this.state.firstname} {this.state.lastname}
+                                </Col>
+                            </Row>
+                            <Row className={"user_information_row"} >
+                                <Col sm={2} className={"user_information"}>
+                                    {this.state.jobtitle}
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
+                    <Row className={"user_information"}>
+                        <Col sm={1}/>
+                        <Col className={"bio"}>
+                            {this.state.bio}
+                        </Col>
+                        <Col sm={1}/>
+                    </Row>
+                    <Row>
+
+                    </Row>
+
+
+
                 </main>
 
                 {Footer.call(this)}
@@ -57,14 +117,30 @@ interface Props {
 
 }
 interface State {
-    data: []
+    skills: [],
+    image:"",
+    firstname:"",
+    other:true,
+    jobtitle:"",
+    bio:"",
+    id: "",
+    lastname:""
+    // data:info
 
 }
 
-interface data {
-
-
-}
+//  info {
+//     skills: [] = [];
+//     image:string ='';
+//     firstname:string='';
+//     other!: boolean;
+//     jobtitle!: string;
+//     bio!: string;
+//     id!: string;
+//     lastname!: string;
+//
+//
+// }
 
 interface skil {
     name:string

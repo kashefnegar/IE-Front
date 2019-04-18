@@ -35,6 +35,7 @@ public class Servlet_UserId extends MyServlet {
         Register user = MyUser.getInstance().FindUser(path[2]);
         response.setContentType("application/json;charset=UTF-8");
         JSONObject resp_massage = new JSONObject();
+        JSONObject res_massage = new JSONObject();
 //        System.out.println(path[1]);
         if(user==null){
            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
@@ -48,7 +49,7 @@ public class Servlet_UserId extends MyServlet {
            resp_massage.put("bio", user.getBio());
            resp_massage.put("skills", user.getSkill());
            resp_massage.put("image", user.getProfilePictureURL());
-            System.out.println("fuck");
+//            System.out.println("fuck");
            resp_massage.put("other", testingUserather(path[2]));
 //            RequestDispatcher view=getServletContext().getRequestDispatcher("/userprofile.jsp");
 //            view.forward(request, response);
