@@ -39,7 +39,7 @@ hr{
   padding: 1%;
   margin:12.5px;
   border-top-style: dashed;
-  border-top-color: #4b9094;
+  border-top-color: #3fcedc;
 }
 
 .row{
@@ -176,4 +176,32 @@ h4.warning div.Tick strong{
 h4.warning div.Tick img{
   width: 30px;
   margin-right: 1%;
+}
+h4.add-offer{
+  direction: rtl;
+  margin-bottom: 2%;
+}
+h4.add-offer p{
+  font-size: 30px;
+}
+h4.add-offer div.offer input{
+  text-align: right;
+  width:23%;
+  height:50px;
+  margin-right: 1%;
+  border: 5px solid #3fcedc;
+  border-radius: 9px;
+  padding-right: 0.5%;
+}
+h4.add-offer div.offer label{
+  color:#3fcedc;
+
+}
+h4.add-offer div.offer button{
+  background-color: #00adbe;
+  color : white;
+  width: 70px;
+  height: 50px;
+  border: 0;
+  border-radius: 4px;
 }

@@ -232,17 +232,27 @@ class ProjectPage extends Component<Props,State>{
                                  {/*</strong>*/}
 
                              {/*</div>*/}
+                         {/*porject already bid*/}
+                         {/*<h4 className="warning">*/}
 
-                         <h4 className="warning">
+                            {/*<div className={"Tick"}>*/}
+                            {/*<img src = {CheckMoney}></img>*/}
 
-                            <div className={"Tick"}>
-                            <img src = {CheckMoney}></img>
+                         {/*<strong>*/}
+                             {/*شما قبلا پیشنهاد خود را ثبت کرده اید*/}
+                         {/*</strong>*/}
 
-                         <strong>
-                             شما قبلا پیشنهاد خود را ثبت کرده اید
-                         </strong>
+                         {/*</div>*/}
+                         {/*</h4>*/}
+                         {/**/}
+                         <h4 className={"add-offer"}>
+                             <p>ثبت پیشنهاد</p>
+                             <div className={"offer"}>
 
-                         </div>
+                                 <input placeholder={"پیشنهاد خود را وارد کنید"}/>
+                                 <label className={"toman"}>تومان</label>
+                                 <button className="send">ارسال</button>
+                             </div>
                          </h4>
 
                      </div>
