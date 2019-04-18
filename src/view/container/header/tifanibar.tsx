@@ -52,7 +52,6 @@ function type_tifanibar(search:boolean=true ,trapezius:boolean=false){
                             <div className={"trapezius"}>
                             </div>
                         </Col>
-                        <Col sm={2}/>
 
                     </Row>
                 </Container>
