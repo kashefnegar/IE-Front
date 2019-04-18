@@ -25,7 +25,7 @@ import MoneyBage from "../../../template/photo/icon/png/004-money-bag.png";
 import CheckMoney from "../../../template/photo/icon/png/001-check-mark.png";
 import ProjectImg from "../../../template/photo/icon/png/girl.png";
 import Danger from "../../../template/photo/icon/png/002-danger.png";
-import DeadlineGray from "../../../template/photo/icon/png/005-deadline-gray.png";
+// import DeadlineGray from "../../../template/photo/icon/png/005-deadline-gray.png";
 
 
 
@@ -145,7 +145,8 @@ class ProjectPage extends Component<Props,State>{
 
                             <h4 className="gray-text">
                                 <div className={"Deadline"}>
-                                    <img  src = {DeadlineGray} ></img>
+                                    {/*<img  src = {DeadlineGray} ></img>*/}
+                                    <img  src = {MoneyBage} ></img>
                                     <strong>زمان باقی مانده : 17 دقیقه و 25 ثانیه </strong>
                                 </div>
                             </h4>
