@@ -248,8 +248,8 @@ class ProjectPage extends Component<Props,State>{
                              <p>ثبت پیشنهاد</p>
                              <div className={"offer"}>
 
-                                 <input id={"Tom"} placeholder={"پیشنهاد خود را وارد کنید"}/>
-                                 <label htmlFor={"Tom"} className={"toman"}>تومان</label>
+                                 <input placeholder={"پیشنهاد خود را وارد کنید"}/>
+                                 <label className={"toman"}>تومان</label>
                                  <button className="send">ارسال</button>
                              </div>
                          </h4>
