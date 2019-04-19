@@ -2,6 +2,9 @@
 @import "~bootstrap/dist/css/bootstrap-grid.css";
 @import "../../../template/style/base.css";
 
+main{
+  min-height:  100vh ;
+}
 *, *::after, *::before{
   box-sizing: content-box;
 }

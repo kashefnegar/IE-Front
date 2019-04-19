@@ -40,7 +40,6 @@ class Login extends Component<Props, State> {
 
                 </main>
 
-
                 {Footer.call(this)}
             </div>);
         // return( Header.call(this)
