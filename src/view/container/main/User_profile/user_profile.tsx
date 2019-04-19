@@ -82,9 +82,10 @@ class UserProfile extends Component <Props,State>{
             <Col >
                 <DropdownButton bsStyle="default" noCaret id="dropdown-item-button" title={this.state.btnTitle}>
                     {this.state.addedskill.map((skill:skil,index)=>(
-                        <Dropdown.Item eventKey={skill.name} onChange={()=>
+                        <Dropdown.Item eventKey={skill.name} onClick={()=>
 
                             this.setState({btnTitle:skill.name})
+
                         }>{skill.name}</Dropdown.Item>
                     ))}
                 </DropdownButton>;
