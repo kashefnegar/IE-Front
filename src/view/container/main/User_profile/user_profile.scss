@@ -100,16 +100,24 @@ button#dropdown-item-button{
 
 }
 
+button#dropdown-item-button.dropdown-toggle.btn.btn-primary{
+  border: #fefefe;
+}
+
 button.dropdown-item{
   width: auto;
 }
+
+
 div.dropdown-menu.show{
-  width: fit-content;
-  position: absolute;
-  will-change: transform;
-  top: 1px;
-  left: 0px;
-  transform: translate3d(860px, 44px, 0px);
+  place-content: center;
+  text-align: right;
+  //width: fit-content;
+  //position: absolute;
+  //will-change: transform;
+  //top: 1px;
+  //left: 0px;
+  //transform: translate3d(860px, 44px, 0px);
 }
 //div.card.card-cascade.wider.reverse .card-body.card-body-cascade {
 //  margin: initial;

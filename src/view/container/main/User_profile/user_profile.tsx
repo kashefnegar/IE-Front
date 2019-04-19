@@ -9,13 +9,18 @@ import "./user_profile.scss";
 // import universal from "react-universal-component/dist/index.js";
 import axios from "axios";
 import {any} from "prop-types";
+// import {string} from "prop-types";
+// import {any} from "prop-types";
+// import {render} from "react-dom";
+// import {log} from "util";
 
 
 class UserProfile extends Component <Props,State>{
     constructor(parameters: { Props: Props, State: State }) {
         let {Props, State} = parameters;
         super(Props);
-        // @ts-ignore
+
+
         this.state={
             skills: [],
             image:'',
@@ -25,57 +30,71 @@ class UserProfile extends Component <Props,State>{
             bio:'',
             id:'',
             lastname:'',
-            addedskill:[]
+            addedskill:[],
+            // @ts-ignore
+            btnTitle:any
         }
 
     }
     componentDidMount(): void{
         // @ts-ignore
+        // const hi = "--انتخاب مهارت --";
+        // const{hi} = "--انتخاب مهارت --";
         const { userid } = this.props.match.params;
-        axios.get("http://localhost:8080/user/"+userid)
-            .then(response=>{
+
+        axios.all(
+            [
+                axios. get("http://localhost:8080/user/"+userid),
+                axios.get("http://localhost:8080/addSkill")
+
+            ]
+        )
+            .then(axios.spread ((response1,response2)=>{
+
+                var hi = " --انتخاب مهارت-- ";
                 this.setState({
-                        skills:response.data.skills,
-                        image:response.data.image,
-                        firstname:response.data.firstname,
-                        other:response.data.other,
-                        jobtitle:response.data.jobtitle,
-                        bio:response.data.bio,
-                        id:response.data.id,
-                        lastname:response.data.lastname
+                        skills:response1.data.skills,
+                        image:response1.data.image,
+                        firstname:response1.data.firstname,
+                        other:response1.data.other,
+                        jobtitle:response1.data.jobtitle,
+                        bio:response1.data.bio,
+                        id:response1.data.id,
+                        lastname:response1.data.lastname,
+                        addedskill:response2.data.skills,
+                        btnTitle:hi
                     }
                 )
-            }, error=>{
-                console.log('server errror')
-            });
-        axios.get("http://localhost:8080/addSkill")
-            .then( response=>{
-                this.setState(
-                    {
-                        addedskill:response.data.skills
-                    }
-                )
-            },
-                error=>{
-                    console.log('server errror')
-                }
-        );
+
+            }))
+        //     .catch(([googleErr, appleErr]){
+        //         console.log("server side error")
+        //
+        // }
+
 
         // const imageSrc = ImageData[this.state.image]
 
-
     }
+
     dropbox(){
         return(
             <Col >
-                <DropdownButton id="dropdown-item-button" title="--انتخاب مهارت --">
-                    {this.state.addedskill.map((skill:skil)=>(
-                        <Dropdown.Item as="button">{skill.name}</Dropdown.Item>
+                <DropdownButton bsStyle="default" noCaret id="dropdown-item-button" title={this.state.btnTitle}>
+                    {this.state.addedskill.map((skill:skil,index)=>(
+                        <Dropdown.Item eventKey={skill.name} onChange={()=>
+
+                            this.setState({btnTitle:skill.name})
+                        }>{skill.name}</Dropdown.Item>
                     ))}
                 </DropdownButton>;
             </Col>
         );
     }
+    // skillchose(title_:skil){
+    //     this.setState({btnTitle:title_.name});
+    // }
+
 
 
     render() {
@@ -84,6 +103,7 @@ class UserProfile extends Component <Props,State>{
         // @ts-ignore
         // path =path.slice(0, path.lastIndexOf('.'));
         // {console.log(path)}
+
         // {let hi = require(this.state.image)}
         {console.log(this.state.addedskill)}
         //
@@ -126,10 +146,11 @@ class UserProfile extends Component <Props,State>{
                         <Col sm={1} className={"username"}>
                             مهارت ها:
                         </Col>
+                        {this.dropbox()}
 
                     </Row>
 
-                    {this.dropbox()}
+
 
                 </main>
 
@@ -154,7 +175,8 @@ interface State {
     bio:"",
     id: "",
     lastname:"",
-    addedskill:[]
+    addedskill:[],
+    btnTitle:any
     // data:info
 
 }
