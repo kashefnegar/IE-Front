@@ -5,6 +5,8 @@ import Tifanibar from "src/view/container/header/tifanibar";
 import {ButtonGroup, Col, DropdownButton, Row, Dropdown, Button} from "react-bootstrap";
 import Footer from "src/view/container/footer/footer";
 import "./user_profile.scss";
+import Notif from "./user_profile"
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 // @ts-ignore
 // import universal from "react-universal-component/dist/index.js";
 import axios from "axios";
@@ -76,6 +78,56 @@ class UserProfile extends Component <Props,State>{
         // const imageSrc = ImageData[this.state.image]
 
     }
+    atheruser(){
+        if(this.state.id.match("1")){
+            return(
+                <Row className={"user_information"}>
+                    <Col sm={1}/>
+                    <Col sm={1} className={"username"}>
+                        مهارت ها:
+                    </Col>
+                    {this.dropbox()}
+                    <Col  className={"addbutten"}>
+                        <Button variant="outline-secondary" onClick={()=>{
+                            var hi = " --انتخاب مهارت-- ";
+                            if (this.state.btnTitle==hi){
+                                NotificationManager.error('مهارتی انتخاب نشده است', 'Click me!', 5000, () => {
+                                    alert('callback');})
+                            }
+                            else {
+                                // const { userid } = t;
+                                axios.all([
+                                    axios.put("http://localhost:8080/addSkill?"+"id="+this.state.btnTitle),
+                                    axios.get("http://localhost:8080/user/"+this.state.id),
+                                    axios.get("http://localhost:8080/addSkill")
+
+                                    ])
+                                    .then(axios.spread ((response1,response2,response3)=>
+                                        {
+                                        this.setState( {
+                                            skills:response2.data.skills,
+                                            addedskill:response3.data.skills,
+                                        });
+                                        }))
+
+                            }
+
+                            }}
+                         >افزودن مهارت</Button>
+                    </Col>
+
+                </Row>
+            );
+
+        }
+        else {
+            return(
+                <div>
+
+                </div>
+            )
+        }
+    }
 
     dropbox(){
         return(
@@ -103,7 +155,7 @@ class UserProfile extends Component <Props,State>{
         // {console.log(path)}
 
         // {let hi = require(this.state.image)}
-        {console.log(this.state.addedskill)}
+        // {console.log(this.state.addedskill)}
         //
         return (
             <div>
@@ -139,17 +191,8 @@ class UserProfile extends Component <Props,State>{
                         </Col>
                         <Col sm={1}/>
                     </Row>
-                    <Row className={"user_information"}>
-                        <Col sm={1}/>
-                        <Col sm={1} className={"username"}>
-                            مهارت ها:
-                        </Col>
-                        {this.dropbox()}
-                        <Col  className={"addbutten"}>
-                            <Button variant="outline-secondary">افزودن مهارت</Button>
-                        </Col>
+                    {this.atheruser()}
 
-                    </Row>
 
 
 
@@ -193,6 +236,11 @@ interface State {
 //     lastname!: string;
 //
 //
+// }
+// declare global {
+//     interface Window {
+//         Notif(notif:boolean): void;
+//     }
 // }
 
 interface skil {

@@ -27,7 +27,8 @@ public class UserAddSkill extends MyServlet {
     ) throws ServletException, IOException {
         response.setContentType("application/json;charset=UTF-8");
         JSONObject resp_massage = new JSONObject();
-        ArrayList<Skills> skcan_be_add = this.getskills((Register) request.getAttribute("user"));
+        MyUser user = MyUser.getInstance();
+        ArrayList<Skills> skcan_be_add = this.getskills(user.FindUser(((Register)request.getAttribute("user")).getId()));
         if (skcan_be_add.size() == 0) {
             response.setStatus(HttpServletResponse.SC_NO_CONTENT);
             resp_massage.put("massage", "skill not found");
@@ -43,13 +44,17 @@ public class UserAddSkill extends MyServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("hi4");
         response.setContentType("application/json");
         JSONObject resp_massage = new JSONObject();
         MyUser user = MyUser.getInstance();
         String newskill = request.getParameter("id");
-        ((Register)request.getAttribute("user")).addSkills(new Skills(newskill, 0));
+        System.out.println(newskill);
+        if(user.FindUser(((Register)request.getAttribute("user")).getId()).findSkill(newskill)==-1)
+        {
+            user.FindUser(((Register)request.getAttribute("user")).getId()).addSkills(new Skills(newskill, 0));
+        }
         response.setStatus(HttpServletResponse.SC_OK);
         resp_massage.put("massage", "skill added");
         System.out.println("hi5");
