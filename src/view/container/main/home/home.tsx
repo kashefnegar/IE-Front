@@ -98,7 +98,7 @@ class Home extends Component<Props,State>{
                                         {Projects.title }
                                     </div>
                                 </Col>
-                                <Col sm={3}>
+                                <Col sm={3} className={"hi"}>
 
                                     {this.cheaking(Projects.deadline)}
                                     {/*<div className={"time_remain"}>*/}
@@ -199,11 +199,11 @@ class Home extends Component<Props,State>{
                 {Tifanibar.call(this)}
                 <main>
                     <Row>
-                        <Col sm={1}/>
+                        <Col sm={1} />
                         <Col>
                             {this.project_list()}
                         </Col>
-                        <Col sm={3}>
+                        <Col sm={3} className={"hi"}>
                             {this.online_users()}
                         </Col>
                     </Row>
