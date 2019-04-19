@@ -74,6 +74,7 @@ div.bio{
 }
 
 div.dropdown{
+  width: fit-content;
   direction: rtl;
   place-content: center;
   text-align: right;
@@ -101,7 +102,9 @@ button#dropdown-item-button{
 }
 
 button#dropdown-item-button.dropdown-toggle.btn.btn-primary{
-  border: #fefefe;
+  border: #fcfcfc solid 2px;
+  background: #f9f9f9;
+  border-radius:2px;
 }
 
 button.dropdown-item{
@@ -112,30 +115,24 @@ button.dropdown-item{
 div.dropdown-menu.show{
   place-content: center;
   text-align: right;
-  //width: fit-content;
-  //position: absolute;
-  //will-change: transform;
-  //top: 1px;
-  //left: 0px;
-  //transform: translate3d(860px, 44px, 0px);
-}
-//div.card.card-cascade.wider.reverse .card-body.card-body-cascade {
-//  margin: initial;
-//  margin-top: 0px;
-//  height: fit-content;
-//  width: auto;
-//  background: #f9f9f9;}
 
-//div.card.card-cascade.wider.reverse .card-body.card-body-cascade {
-//  margin: initial;
-//  margin-top: 0px;
-//  height: fit-content;
-//  width: auto;
-//  background : #f9f9f9;
-//}
-//.card.card-cascade.wider.reverse .card-body.card-body-cascade img{
-//  margin: -100px 0px;
-//  border-radius: 14px;
-//  border: 5px solid whitesmoke;
-//  /*border-width: 10px;*/
-//}
+}
+div.addbutten{
+  //margin-left: 200px;
+  margin-right: -52%;
+  place-content: center;
+  text-align: right;
+  //margin-right: 10px;
+}
+
+div.dropbox.col{
+  //background: #f9f9f9;
+  padding-left: 0px;
+  width: fit-content;
+}
+button.btn.btn-outline-secondary{
+  place-content: center;
+  border: #fcfcfc solid 3px;
+  border-radius: 4px;
+  height: 40%;
+}

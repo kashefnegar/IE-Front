@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import Header from "src/view/container/header/header";
 import Tifanibar from "src/view/container/header/tifanibar";
-import {ButtonGroup, Col, DropdownButton, Row, Dropdown} from "react-bootstrap";
+import {ButtonGroup, Col, DropdownButton, Row, Dropdown, Button} from "react-bootstrap";
 import Footer from "src/view/container/footer/footer";
 import "./user_profile.scss";
 // @ts-ignore
@@ -79,7 +79,7 @@ class UserProfile extends Component <Props,State>{
 
     dropbox(){
         return(
-            <Col >
+            <Col className={"dropbox"}>
                 <DropdownButton bsStyle="default" noCaret id="dropdown-item-button" title={this.state.btnTitle}>
                     {this.state.addedskill.map((skill:skil,index)=>(
                         <Dropdown.Item eventKey={skill.name} onClick={()=>
@@ -92,9 +92,6 @@ class UserProfile extends Component <Props,State>{
             </Col>
         );
     }
-    // skillchose(title_:skil){
-    //     this.setState({btnTitle:title_.name});
-    // }
 
 
 
@@ -148,6 +145,9 @@ class UserProfile extends Component <Props,State>{
                             مهارت ها:
                         </Col>
                         {this.dropbox()}
+                        <Col  className={"addbutten"}>
+                            <Button variant="outline-secondary">افزودن مهارت</Button>
+                        </Col>
 
                     </Row>
 
