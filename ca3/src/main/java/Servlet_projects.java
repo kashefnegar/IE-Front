@@ -1,4 +1,7 @@
+import models.MyUser;
+import models.Project;
 import models.Projects;
+import models.Register;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -9,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 @WebServlet(name = "Servlet_projects", urlPatterns = "/projects/*")
 public class Servlet_projects extends HttpServlet {
@@ -25,8 +29,22 @@ public class Servlet_projects extends HttpServlet {
             resp_massage.put("massage", "Projects cant be found");
         }
         else {
+            ArrayList<Project> progect_can_see =new ArrayList<>();
             response.setStatus(HttpServletResponse.SC_OK);
-            resp_massage.put("Projects", new JSONArray(Projects.getInstance().getProjects()));
+            ArrayList<Project> allprjects = Projects.getInstance().getProjects();
+            MyUser user = MyUser.getInstance();
+            Register user_index = user.FindUser( ((Register)request.getAttribute("user")).getId() );
+
+            for (int i=0; i<allprjects.size(); i++){
+                if( Projects.getInstance().hasNecessarySkills(allprjects.get(i).getId(),
+                       user_index) ){
+                    progect_can_see.add( allprjects.get(i));
+
+                }
+            }
+
+
+            resp_massage.put("Projects", new JSONArray(progect_can_see));
         }
 //        response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
