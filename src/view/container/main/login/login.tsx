@@ -15,33 +15,37 @@ import {Button, Form} from "react-bootstrap";
 // var template = { __html: __html };
 class Login extends Component<Props, State> {
     render() {
-        return(
+
+        var div = (
             <div>
                 {Header.call(this)}
                 {Tifanibar.call(this)}
                 <main>
                     <Form>
 
-                        <Form.Group  controlId="formBasicEmail">
-                            <Form.Label >نام کاربری</Form.Label>
-                            <Form.Control type="email" placeholder="kashefnegar" />
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>نام کاربری</Form.Label>
+                            <Form.Control type="email" placeholder="kashefnegar"/>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">
                             <Form.Label>رمز عبور</Form.Label>
-                            <Form.Control type="password" placeholder="******" />
+                            <Form.Control type="password" placeholder="******"/>
                         </Form.Group>
-                        <Form.Group>.
-                        <Button variant="primary" type="submit">
-                            ورود
-                        </Button>
-                    </Form.Group>
+                        <Form.Group>
+                            <span dir="rtl"><a href="/signup">  ثبت نام</a></span>
+                            <Button variant="primary" type="submit">
+                                <a href="/">ورود</a>
+                            </Button>
+
+                        </Form.Group>
                     </Form>
 
                 </main>
 
                 {Footer.call(this)}
             </div>);
+        return div;
         // return( Header.call(this)
         // Footer.call(this);)
     }
