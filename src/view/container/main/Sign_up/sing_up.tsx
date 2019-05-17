@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Button, Col, Form} from "react-bootstrap";
-import "./sign_up.scss"
+import "./sign_up.scss";
+import { ToastContainer, toast } from 'react-toastify';
+
 import {render} from "react-dom";
+import Header from "src/view/container/header/header";
+import Tifanibar from "src/view/container/header/tifanibar";
+import Footer from "src/view/container/footer/footer";
 const config = { headers: {'Content-Type': 'application/json'} };
-class SingUp extends Component {
+class SingUp extends Component <props, state> {
+    confirmedPassword: boolean;
     constructor (props) {
         super(props);
         this.state = {
@@ -17,118 +23,146 @@ class SingUp extends Component {
             title:'',
             bio:'',
             photolink:''
+
         }
+        this.confirmedPassword = false;
     }
 
+    notifyError = (msg:string) => { toast.error(msg); }
+
+
     handleFirstName (e): void {
-        const name = e.target.name;
-        const value = e.target.value;
-        this.setState({[name]: value});
+        this.setState({name:e.target.value});
     }
     handleLastName (e): void {
-        const lastname = e.target.name;
-        const value = e.target.value;
-        this.setState({[lastname]: value});
+        this.setState({lastname: e.target.value});
     }
     handleUserName (e): void {
-        const username = e.target.name;
-        const value = e.target.value;
-        this.setState({[username]: value});
+        this.setState({username: e.target.value});
     }
     handlePassword (e): void {
-        const password = e.target.name;
-        const value = e.target.value;
-        this.setState({[password]: value});
+        this.setState({password: e.target.value});
     }
     handleRePassword (e): void {
-        const repassword = e.target.name;
-        const value = e.target.value;
-        this.setState({[repassword]: value});
+        this.setState({repassword: e.target.value});
+        if (this.state.repassword !== '' && this.state.repassword !== this.state.password){
+            this.notifyError("دو پسورد وارد شده با یکدیگر تطابق ندارند!");
+        }
     }
     handleTitle (e): void {
-        const title = e.target.name;
-        const value = e.target.value;
-        this.setState({[title]: value});
+        this.setState({title: e.target.value});
     }
     handleLink (e): void {
-        const photolink = e.target.name;
-        const value = e.target.value;
-        this.setState({[photolink]: value});
+        this.setState({photolink: e.target.value});
     }
     handleBio (e): void {
-        const bio = e.target.name;
-        const value = e.target.value;
-        this.setState({[bio]: value});
+        this.setState({bio: e.target.value});
     }
 
     handleSubmit = event => {
         event.preventDefault();
 
-        // var user = {
-        //     id : this.state.username,
-        //     firstName: this.state.name,
-        //     lastName: this.state.lastname,
-        //     jobTitle: this.state.title,
-        //     password:this.state.password,
-        //     bio: this.state.bio,
-        //     profilePictureURL: this.state.photolink
-        //
-        // };
+        var user = {
+            id : this.state.username,
+            firstName: this.state.name,
+            lastName: this.state.lastname,
+            jobTitle: this.state.title,
+            password:this.state.password,
+            bio: this.state.bio,
+            profilePictureURL: this.state.photolink
 
-        // axios.post(`http://localhost:8080/register`, { user } ,config)
-        //     .then(res => {
-        //         console.log(res);
-        //         console.log(res.data);
-        //     })
+        };
+
+        axios.post(`http://localhost:8080/signup`, { user } ,config)
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
     }
 
     render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
+
+        var div = (
             <div>
-                <div className="login">
-                    <div className="login-header">
-                        <h1>ایجاد حساب کاربری</h1>
-                    </div>
-                    <div className="login-form">
-                        <h4>نام</h4>
-                        <input type="text" dir="rtl" placeholder="نگار" name={"name"} onChange={(event) => this.handleFirstName(event)}/>
+                {Header.call(this)}
+                {Tifanibar.call(this,true)}
+                <main>
+                    <Form onSubmit={this.handleSubmit}>
 
-                        <h4>نام خانوادگی</h4>
-                        <input type="text" dir="rtl" placeholder="کاشف" name={"lastname"} onChange={(event) => this.handleLastName(event)}/>
+                        <Form.Group >
+                            <Form.Label>نام</Form.Label>
+                            <Form.Control type="text"
+                                          pattern={"[آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیa-zA-Z]"}
+                                          title="تنها حروف مجازند"
+                                          name = {"name"} onChange={(event) => this.handleFirstName(event)}/>
+                        </Form.Group>
 
-                        <h4>نام کاربری</h4>
-                        <input type="text" placeholder="kashefnegar" name={"username"} onChange={(event) => this.handleUserName(event)}/>
+                        <Form.Group >
+                            <Form.Label>نام خانوادگی</Form.Label>
+                            <Form.Control type="text"
+                                          pattern={"[آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیa-zA-Z]"}
+                                          title="تنها حروف مجازند"
+                                          name={"lastname"} onChange={(event) => this.handleLastName(event)}/>
+                        </Form.Group>
 
-                        <h4>رمز عبور</h4>
-                        <input type="password" placeholder="******" name={"password"} onChange={(event) => this.handlePassword(event)}/>
+                        <Form.Group >
+                            <Form.Label>نام کاربری</Form.Label>
+                            <Form.Control type="text"
+                                          pattern={"[آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیa-zA-Z]"}
+                                          title="حروف,.,_"
+                                          name={"username"} onChange={(event) => this.handleUserName(event)}/>
+                        </Form.Group>
 
-                        <h4>تکرار رمز عبور</h4>
-                        <input type="password" placeholder="******" name={"repassword"}
-                               // onTransitionEnd={(event)=>{
-                            // if(!this.state.repassword.match(this.state.password)){
+                        <Form.Group >
+                            <Form.Label>رمز عبور</Form.Label>
+                            <Form.Control type="password" placeholder="******"
+                                          pattern=".*[0-9]+.*" title="شامل حداقل یک عدد "
+                                          name={"password"} onChange={(event) => this.handlePassword(event)}/>
+                        </Form.Group>
 
-                            // }
-                      //  {/*}}*/}
-                               onChange={(event) => this.handleRePassword(event)}
-                        />
+                        <Form.Group >
+                            <Form.Label>تکرار رمز عبور</Form.Label>
+                            <Form.Control type="password" placeholder="******"
+                                          pattern=".*[0-9]+.*" title="شامل حداقل یک عدد "
+                                          name={"repassword"}
+                                onChange={(event) => this.handleRePassword(event)}
+                            />
 
-                        <h4>عنوان شغلی</h4>
-                        <input type="text" dir="rtl" placeholder="توسعه دهنده نرم افزار" name={"title"} onChange={(event) => this.handleTitle(event)}/>
+                        </Form.Group>
 
-                        <h4>لینک عکس پروفایل</h4>
-                        <input type="text" name={"photolink"} onChange={(event) => this.handleLink(event)}/>
 
-                        <h4>بیو</h4>
-                        <input type="text" name={"bio"} dir="rtl" onChange={(event) => this.handleBio(event)}/>
+                        <Form.Group >
+                            <Form.Label>عنوان شغلی</Form.Label>
+                            <Form.Control type="text" dir="rtl" placeholder="توسعه دهنده نرم افزار"
+                                          title="حروف,()"
+                                          pattern="[A-Zپ-ژ-گ-چ-أ-يa-z-(-)].{3,}"
+                                          name={"title"} onChange={(event) => this.handleTitle(event)}/>
+                        </Form.Group>
 
-                        <input type="button" value="Login" className="login-button"/>
-                    </div>
-                </div>
+                        <Form.Group >
+                            <Form.Label>لینک عکس پروفایل</Form.Label>
+                            <Form.Control type="text" name={"photolink"} onChange={(event) => this.handleLink(event)}/>
+                        </Form.Group>
 
-            </div>
-            </form>
-        );
+                        <Form.Group >
+                            <Form.Label>بیو</Form.Label>
+                            <Form.Control type="text" name={"bio"} dir="rtl" onChange={(event) => this.handleBio(event)}/>
+                        </Form.Group>
+
+                        <Form.Group>
+                            <span dir="rtl"><a href="/login">  ورود</a></span>
+                            <Button variant="primary" type="submit">
+                                <a href="/">ثبت نام</a>
+                            </Button>
+
+                        </Form.Group>
+                    </Form>
+
+                </main>
+
+                {Footer.call(this)}
+            </div>);
+        return div;
     }
 }
 interface user {
@@ -140,4 +174,19 @@ interface user {
     password:string
     bio:string
 }
+
+interface state {
+    id:string
+    name:string
+    lastname:string
+    username:string
+    title:string
+    photolink:string
+    password:string
+    bio:string
+    repassword:string
+
+}
+interface props {}
+
 export default SingUp;

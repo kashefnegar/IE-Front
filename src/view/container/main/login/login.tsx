@@ -19,7 +19,7 @@ class Login extends Component<Props, State> {
         var div = (
             <div>
                 {Header.call(this)}
-                {Tifanibar.call(this)}
+                {Tifanibar.call(this,true)}
                 <main>
                     <Form>
 
