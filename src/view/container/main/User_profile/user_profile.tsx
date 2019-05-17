@@ -5,16 +5,11 @@ import Tifanibar from "src/view/container/header/tifanibar";
 import {ButtonGroup, Col, DropdownButton, Row, Dropdown, Button} from "react-bootstrap";
 import Footer from "src/view/container/footer/footer";
 import "./user_profile.scss";
-import Notif from "./user_profile"
 import {NotificationContainer, NotificationManager} from 'react-notifications';
-// @ts-ignore
-// import universal from "react-universal-component/dist/index.js";
+
 import axios from "axios";
 import {any} from "prop-types";
-// import {string} from "prop-types";
-// import {any} from "prop-types";
-// import {render} from "react-dom";
-// import {log} from "util";
+
 
 
 class UserProfile extends Component <Props,State>{
@@ -40,8 +35,6 @@ class UserProfile extends Component <Props,State>{
     }
     componentDidMount(): void{
         // @ts-ignore
-        // const hi = "--انتخاب مهارت --";
-        // const{hi} = "--انتخاب مهارت --";
         const { userid } = this.props.match.params;
 
         axios.all(
@@ -69,13 +62,6 @@ class UserProfile extends Component <Props,State>{
                 )
 
             }))
-        //     .catch(([googleErr, appleErr]){
-        //         console.log("server side error")
-        //
-        // }
-
-
-        // const imageSrc = ImageData[this.state.image]
 
     }
     atheruser(){
@@ -148,15 +134,6 @@ class UserProfile extends Component <Props,State>{
 
 
     render() {
-        // {console.log(`../../../template/photo/slideShow${this.state.image}`)}
-        // let path = this.state.image;
-        // @ts-ignore
-        // path =path.slice(0, path.lastIndexOf('.'));
-        // {console.log(path)}
-
-        // {let hi = require(this.state.image)}
-        // {console.log(this.state.addedskill)}
-        //
         return (
             <div>
 
@@ -164,7 +141,6 @@ class UserProfile extends Component <Props,State>{
                 {Tifanibar.call(this,false ,true)}
                 <main>
 
-                    {/*<div className="card-body card-body-cascade text-right wow fadeIn" data-wow-delay="0.2s">*/}
 
                     <Row className={"user_information"}>
                         <Col sm={3} className={"user_information"} >
@@ -207,7 +183,7 @@ class UserProfile extends Component <Props,State>{
 
 
 interface Props {
-    // yourname : string;
+
 
 }
 interface State {
@@ -221,27 +197,9 @@ interface State {
     lastname:"",
     addedskill:[],
     btnTitle:any
-    // data:info
 
 }
 
-//  info {
-//     skills: [] = [];
-//     image:string ='';
-//     firstname:string='';
-//     other!: boolean;
-//     jobtitle!: string;
-//     bio!: string;
-//     id!: string;
-//     lastname!: string;
-//
-//
-// }
-// declare global {
-//     interface Window {
-//         Notif(notif:boolean): void;
-//     }
-// }
 
 interface skil {
     name:string
