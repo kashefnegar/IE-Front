@@ -26,16 +26,19 @@ import Tifanibar from "src/view/container/header/tifanibar";
 var users = {
     "users":[
         {
+            "id":1,
             "name":"mona",
             "jobtitle":"programer",
             "img":mona
         },
         {
+            "id":2,
             "name":"life",
             "jobtitle":"smile",
             "img":mona
         },
         {
+            "id":3,
             "name":"hi",
             "jobtitle":"dont work",
             "img":mona
@@ -88,7 +91,7 @@ class Home extends Component<Props,State>{
     project_list(){
         return(
             this.state.data.map( (  Projects: Projects) =>(
-
+                <a href={"/project"+ Projects.id}>
                 <div className={"card-body card-body-cascade text-right wow fadeIn"}>
                     <Row key={Projects.id}>
                     <Col sm={9}>
@@ -136,6 +139,7 @@ class Home extends Component<Props,State>{
                 </Col>
             </Row>
                 </div>
+                    </a>
 
         ))
 
@@ -165,11 +169,17 @@ class Home extends Component<Props,State>{
             <div className={"online_user"}>
                 {this.search_user()}
                 {users.users.map((user)=>(
-                    <div className={"card-body card-body-cascade text-right wow fadeIn"}>
+                    <a href={"/user/"+user.id}>
+                    <div className={"card-body card-body-cascade text-right wow fadeIn"} >
                         <Row>
+
                             <Col>
+
                                 <img src={user.img}/>
+
+
                             </Col>
+
                             <Col>
                                 <Row>
                                     <Col>
@@ -185,6 +195,7 @@ class Home extends Component<Props,State>{
                         </Row>
 
                     </div>
+                    </a>
                 ))}
 
             </div>
