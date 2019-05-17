@@ -5,10 +5,10 @@ const Header = () =>(
         <div className={'sticky'}>
         <div className={"header-right navbar-fixed-top navbar-default"}>
             <div className={'icons'}>
-            <a className="active" href="#account" >حساب کاربری</a>
-            <a className="active" href="#exit" >خروج</a>
+            <a className="active" href="/login" >حساب کاربری</a>
+            <a className="active" href="/login" >خروج</a>
             </div>
-            <a href="#logo"> <img alt="logo" src ={ require('../../template/photo/Logo/logov2.png')}/> </a>
+            <a href="/"> <img alt="logo" src ={ require('../../template/photo/Logo/logov2.png')}/> </a>
 
         </div>
             </div>

@@ -69,6 +69,7 @@ class Home extends Component<Props,State>{
             });
     }
     cheaking(deadline:number){
+        setInterval(() => {console.log('salam')}, 1000)
         // deadline=0;
         if(deadline>0){
             return( <div className={"time_remain"}>
