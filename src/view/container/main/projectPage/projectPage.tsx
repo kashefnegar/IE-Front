@@ -26,6 +26,7 @@ import CheckMoney from "../../../template/photo/icon/png/001-check-mark.png";
 import ProjectImg from "../../../template/photo/icon/png/girl.png";
 import Danger from "../../../template/photo/icon/png/002-danger.png";
 import DeadlineGray from "../../../template/photo/icon/png/005-deadline-gray.png";
+import {any} from "prop-types";
 
 
 
@@ -33,27 +34,42 @@ class ProjectPage extends Component<Props,State>{
 
     constructor(parameters: { Props: Props, State: State }) {
         let {Props, State} = parameters;
-        super(Props, State);
-        this.state= {
-            data:[]
-        };
+        super(Props);
+
+
+        this.state={
+            id:'',
+            title:'',
+            description:'',
+            deadline:'',
+            budget:0,
+            imageURL:''
+        }
+
+    }
+    componentDidMount(): void{
+        // @ts-ignore
+        const { projectid } = this.props.match.params;
+
+         axios. get("http://localhost:8080/project/"+projectid)
+
+             .then(response =>{
+                 this.setState({
+                     id:response.data.id,
+                     title:response.data.title,
+                     description:response.data.description,
+                     deadline:response.data.deadline,
+                     budget:response.data.budget,
+                     imageURL:response.data.imageURL
+                     }
+                 )
+             },error=>{
+                 console.log('server errorrrr')
+             });
+
     }
 
-    componentDidMount(): void
-    {
-        axios.get('http://localhost:8080/project/')
-            .then(response =>{
 
-                // transformResponse: (r: ServerResponse) => r.data
-                // console.log(response.data.Projects)
-                this.setState({
-                        data:response.data.Project
-                    }
-                )
-            },error=>{
-                console.log('server errorrrr')
-            });
-    }
     cheaking(deadline:number){
         // deadline=0;
         if(deadline>0){
@@ -86,30 +102,7 @@ class ProjectPage extends Component<Props,State>{
             </h4>
         )
     }
-    // @ts-ignore
-    // projectInfo(){
-    //     return(
-    //     this.state.data.map( ( Project: ProjectT)) =>(
-    //         <h2 className="card-title"><strong>{rojectT.title}</strong></h2>
-    //             {this.cheaking(ProjectT.deadline)}
-    //
-    //         <h4 className="buget">
-    //             <div className={"MoneyBage"}>
-    //                 <img src = {MoneyBage}></img>
-    //                 <strong>بودجه : {Project.budjet}</strong>
-    //             </div>
-    //         </h4>
-    //             if({Project.deadline} = 0 )
-    //                 {this.winner(Project.winner)}
-    //
-    //     <h3><strong> توضیحات</strong></h3>
-    //
-    //     <h4 className="ditail">
-    //         &nbsp; &nbsp;{Project.Info}
-    //     </h4>
-    //     )
-    //     )
-    // }
+
     projectImg(){
         return(
             <div className={"ProjectImg"}>
@@ -133,7 +126,7 @@ class ProjectPage extends Component<Props,State>{
              <div className={"card-body card-body-cascade text-right wow fadeIn"}>
                  <div className="row">
                      <div className="col-sm-9">
-                         <h2 className="card-title"><strong>پروژه طراحی سایت جاب اونجا</strong></h2>
+                         <h2 className="card-title"><strong>{this.state.title}</strong></h2>
                              {/*in project-deadline-reached*/}
                              {/*<h4 className={"red-text"}>*/}
                                  {/*<div className={"Deadline"}>*/}
@@ -154,7 +147,7 @@ class ProjectPage extends Component<Props,State>{
                              <h4 className="buget">
                                      <div className={"MoneyBage"}>
                                          <img src = {MoneyBage}></img>
-                                         <strong>بودجه : ۲۵۰۰ تومان</strong>
+                                         <strong>بودجه : {this.state.budget} تومان</strong>
                                      </div>
 
                                  </h4>
@@ -172,16 +165,13 @@ class ProjectPage extends Component<Props,State>{
                                      <h3><strong> توضیحات</strong></h3>
 
                                      <h4 className="ditail">
-                                         &nbsp; &nbsp; لورم الپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                         گرافیک است. چاپگر ها و متون بلکه روزنامه و مجله در ستون و سطر آنچنان که لازم است . لورم ایپسوم
-                                         متن ساختگی با تولید سادگی نا مفهوم از صنعت جاپ و با استقاده از طراحان گرافیک است . چاپگرها و
-                                         متون بلکه روزنامه و محله در ستون و سطر آنچنان که لازم است.
+                                         &nbsp; &nbsp;{this.state.description}
                                      </h4>
                      </div>
 
                      <div className={"col-sm-2"}>
                              <div className={"ProjectImg"}>
-                                 <img src = {ProjectImg}></img>
+                                 <img src = {this.state.imageURL}></img>
                              </div>
                      </div>
 
@@ -271,7 +261,12 @@ interface Props {
 
 }
 interface State {
-    data: []
+    id:string
+    title:string
+    description:string
+    deadline:string
+    budget:number
+    imageURL:string
 
 }
 interface ServerResponse {
