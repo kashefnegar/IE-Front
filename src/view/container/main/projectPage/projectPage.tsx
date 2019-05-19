@@ -49,9 +49,9 @@ class ProjectPage extends Component<Props,State>{
     }
     componentDidMount(): void{
         // @ts-ignore
-        const { projectid } = this.props.match.params;
+        const { id } = this.props.match.params;
 
-         axios. get("http://localhost:8080/project/"+projectid)
+         axios. get("http://localhost:8080/project/"+id)
 
              .then(response =>{
                  this.setState({

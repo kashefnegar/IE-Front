@@ -91,7 +91,7 @@ class Home extends Component<Props,State>{
     project_list(){
         return(
             this.state.data.map( (  Projects: Projects) =>(
-                <a href={"/project"+ Projects.id}>
+                <a href={"/project/"+ Projects.id}>
                 <div className={"card-body card-body-cascade text-right wow fadeIn"}>
                     <Row key={Projects.id}>
                     <Col sm={9}>
