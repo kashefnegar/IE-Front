@@ -41,7 +41,7 @@
   ],
   "devDependencies": {
     "@types/react-router-dom": "^4.3.2",
-    "node-sass": "^4.11.0",
+    "node-sass": "^7.0.0",
     "react-json-view": "^1.19.1",
     "react-universal-component": "^4.0.0"
   }
